@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './ui/listings_screen.dart';
 import './provider_setup.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.green,
         ),
-        home: MyHomePage(),
+        home: ListingsScreen(),
       ),
     );
   }

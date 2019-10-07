@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'listing.g.dart';
+
+@JsonSerializable()
 class Listing {
+  const Listing(
+      {@required this.id,
+      @required this.name,
+      @required this.type,
+      @required this.phone});
+
   final String id;
   final String name;
   final String type;
@@ -9,9 +19,8 @@ class Listing {
   // final Photo logo;
   // final List<String> tags;
 
-  const Listing(
-      {@required this.id,
-      @required this.name,
-      @required this.type,
-      @required this.phone});
+  factory Listing.fromJson(Map<String, dynamic> json) =>
+      _$ListingFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ListingToJson(this);
 }

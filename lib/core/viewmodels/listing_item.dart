@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jommalaysia/core/constants/app_constants.dart';
 
 class ListingItem extends StatelessWidget {
   final String id;
@@ -8,7 +9,7 @@ class ListingItem extends StatelessWidget {
   ListingItem(this.id, this.name, this.type);
 
   void getListingDetail(BuildContext context) {
-    Navigator.of(context).pushNamed('/listing-details', arguments: {
+    Navigator.of(context).pushNamed(RoutePaths.LISTINGINFO, arguments: {
       'id': id,
       'name': name,
     });

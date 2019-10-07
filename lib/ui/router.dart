@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jommalaysia/core/constants/app_constants.dart';
 import '../ui/views/listing_detail_screen.dart';
 import '../ui/views/listings_screen.dart';
 
@@ -7,7 +8,7 @@ class Router {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => ListingsScreen());
-      case '/listing-details':
+      case RoutePaths.LISTINGINFO:
         return MaterialPageRoute(builder: (_) => ListingDetailsScreen());
       default:
         return MaterialPageRoute(builder: (_) {

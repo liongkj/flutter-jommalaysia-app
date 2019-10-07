@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../core/services/listing_service.dart';
-import '../core/viewmodels/listing_item.dart';
+import '../../core/services/listing_service.dart';
+import '../../core/viewmodels/listing_item.dart';
 
 class ListingsScreen extends StatelessWidget {
   @override
@@ -13,6 +13,7 @@ class ListingsScreen extends StatelessWidget {
         padding: const EdgeInsets.all(25),
         children: DUMMY_LISTING
             .map((x) => ListingItem(
+                  x.id,
                   x.name,
                   x.type,
                 ))

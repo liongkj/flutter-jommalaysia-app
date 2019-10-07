@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import './ui/listings_screen.dart';
+import 'package:jommalaysia/ui/router.dart';
+import './ui/app_theme.dart';
 import './provider_setup.dart';
 import 'package:provider/provider.dart';
 
@@ -12,10 +13,9 @@ class MyApp extends StatelessWidget {
       providers: providers,
       child: MaterialApp(
         title: 'JomMalaysia',
-        theme: ThemeData(
-          primarySwatch: Colors.green,
-        ),
-        home: ListingsScreen(),
+        theme: appTheme,
+        initialRoute: '/',
+        onGenerateRoute: Router.generateAndroidRoute,
       ),
     );
   }

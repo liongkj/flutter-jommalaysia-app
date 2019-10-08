@@ -1,6 +1,7 @@
 import 'package:jommalaysia/core/services/listing_service.dart';
-import 'package:jommalaysia/core/viewmodels/listings_viewmodel.dart';
 import 'package:provider/provider.dart';
+
+import 'core/viewmodels/widgets/listing_viewmodel.dart';
 
 List<SingleChildCloneableWidget> providers = [
   ...independentServices,
@@ -16,11 +17,13 @@ List<SingleChildCloneableWidget> independentServices = [
 ];
 
 //These are classes/object that depend on previously registered services
-List<SingleChildCloneableWidget> dependentServices = [
-  // ProxyProvider<ListingService, ListingsViewModel>(
-  //     builder: (context, listingService, listingViewModel) =>
-  //         ListingsViewModel(listingService: listingService))
-];
+List<SingleChildCloneableWidget> dependentServices = [];
 
 //These are values that you want to consume directly in the UI. You can add values here if you would have to introduce a property on most, if not all your models just to get the data out. In our case the user information. If we don't provide it here then all the models will have a user property on it. You could also just add it to the BaseModel, but I digress.
-List<SingleChildCloneableWidget> uiConsumableProviders = [];
+List<SingleChildCloneableWidget> uiConsumableProviders = [
+  // StreamProvider<Listing>(
+  //   builder: (context) => Provider.of<ListingService>(
+  //     context,
+  //   ),
+  // )
+];

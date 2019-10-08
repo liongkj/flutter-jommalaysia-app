@@ -1,4 +1,4 @@
-import 'package:jommalaysia/core/enums/listingtype.dart';
+import 'package:jommalaysia/core/models/listing_type.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'address.dart';
@@ -17,7 +17,7 @@ class Listing {
   // List<String> tags;
   // Address address;
   // String status;
-  // ListingType listingType;
+  ListingType listingType;
   // Category category;
   // String createdAt;
   // String modifiedAt;
@@ -30,7 +30,7 @@ class Listing {
     // this.tags,
     // this.address,
     // this.status,
-    // this.listingType,
+    this.listingType,
     // this.category,
     // this.createdAt,
     // this.modifiedAt,

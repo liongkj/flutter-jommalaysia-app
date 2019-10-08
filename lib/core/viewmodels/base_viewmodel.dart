@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jommalaysia/core/enums/viewstate.dart';
 
-class BaseModel extends ChangeNotifier {
-  ViewState _state = ViewState.Idle;
+class BaseViewmodel extends ChangeNotifier {
+  ViewState _state;
 
   ViewState get state => _state;
 

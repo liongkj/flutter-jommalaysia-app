@@ -7,12 +7,12 @@ import 'api_response_decoder.dart';
 class ListingService {
   static const endpoint = 'https://jommalaysiaapi.azurewebsites.net/api/';
 
-  var client = new http.Client();
+  var _client = new http.Client();
 
   // Future<List<Listing>> fetchListings() async {
   Future<T> fetchListings<T, K>() async {
     // Get comments for post
-    final jsonReponse = await client.get('$endpoint/listings');
+    final jsonReponse = await _client.get('$endpoint/listings');
 
     // Parse into List
     if (jsonReponse.statusCode == 200) {

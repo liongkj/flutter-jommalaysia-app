@@ -2,20 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:jommalaysia/core/enums/viewstate.dart';
 import 'package:jommalaysia/core/models/listing.dart';
 import 'package:jommalaysia/core/services/listing_service.dart';
+import 'package:jommalaysia/core/viewmodels/base_viewmodel.dart';
 
-class ListingsViewModel extends ChangeNotifier {
+class ListingViewModel extends BaseViewmodel {
   ListingService _listingService;
-  ViewState viewState;
-  List<Listing> listings;
 
-  ListingsViewModel({@required ListingService listingService}) {
-    _listingService = listingService;
-    print("view model run");
-  }
-  void setState(ViewState viewState) {
-    viewState = viewState;
-    notifyListeners();
-  }
+  ListingViewModel({@required ListingService listingService})
+      : _listingService = listingService;
+
+  List<Listing> listings;
 
   Future<bool> fetchListings() async {
     setState(ViewState.Busy);

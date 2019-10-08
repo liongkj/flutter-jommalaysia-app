@@ -8,15 +8,14 @@ part of 'listing_type.dart';
 
 ListingType _$ListingTypeFromJson(Map<String, dynamic> json) {
   return ListingType(
-    listingType:
-        _$enumDecodeNullable(_$ListingTypeEnumEnumMap, json['listingType']),
+    name: _$enumDecodeNullable(_$ListingTypeEnumEnumMap, json['name']),
     id: json['id'] as int,
   );
 }
 
 Map<String, dynamic> _$ListingTypeToJson(ListingType instance) =>
     <String, dynamic>{
-      'listingType': _$ListingTypeEnumEnumMap[instance.listingType],
+      'name': _$ListingTypeEnumEnumMap[instance.name],
       'id': instance.id,
     };
 

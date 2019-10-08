@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jommalaysia/ui/shared/text_styles.dart';
 import 'package:jommalaysia/ui/shared/ui_helpers.dart';
+import 'package:jommalaysia/ui/widgets/appbar_widget.dart';
 import 'package:jommalaysia/ui/widgets/listinglist_widget.dart';
 
 class SearchViewScreen extends StatelessWidget {
@@ -8,7 +9,7 @@ class SearchViewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Categories'),
+        title: Text("12"),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

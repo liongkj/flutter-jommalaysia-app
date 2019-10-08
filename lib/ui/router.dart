@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:jommalaysia/core/models/listing.dart';
+import 'package:jommalaysia/ui/views/home_screen.dart';
 import '../core/constants/app_constants.dart';
 import '../ui/views/listing_detail_screen.dart';
-import '../ui/views/search_view_screen.dart';
 
 class Router {
   static Route<dynamic> generateAndroidRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => SearchViewScreen());
+        return MaterialPageRoute(builder: (_) => HomeScreen());
+      // return MaterialPageRoute(builder: (_) => SearchViewScreen());
       case RoutePaths.LISTINGINFO:
         var listing = settings.arguments as Listing;
         return MaterialPageRoute(

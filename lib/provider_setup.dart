@@ -1,4 +1,5 @@
 import 'package:jommalaysia/core/services/listing_service.dart';
+import 'package:jommalaysia/core/viewmodels/home_viewmodel.dart';
 import 'package:provider/provider.dart';
 
 import 'core/viewmodels/widgets/listing_viewmodel.dart';
@@ -13,7 +14,7 @@ List<SingleChildCloneableWidget> providers = [
 List<SingleChildCloneableWidget> independentServices = [
   Provider.value(
     value: ListingService(),
-  )
+  ),
 ];
 
 //These are classes/object that depend on previously registered services

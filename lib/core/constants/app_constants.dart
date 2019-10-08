@@ -7,3 +7,7 @@ class RoutePaths {
   static const String NEARBY = 'nearby';
   static const String ACCOUNT = 'account';
 }
+
+class Name {
+  static const String APPNAME = 'Jom Malaysia';
+}

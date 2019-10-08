@@ -5,10 +5,10 @@ part 'listing_type.g.dart';
 
 @JsonSerializable()
 class ListingType {
-  final ListingTypeEnum listingType;
+  final ListingTypeEnum name;
   final int id;
 
-  ListingType({this.listingType, this.id});
+  ListingType({this.name, this.id});
 
   factory ListingType.fromJson(Map<String, dynamic> json) =>
       _$ListingTypeFromJson(json);

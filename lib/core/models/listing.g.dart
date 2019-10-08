@@ -8,16 +8,12 @@ part of 'listing.dart';
 
 Listing _$ListingFromJson(Map<String, dynamic> json) {
   return Listing(
-    id: json['id'] as String,
-    name: json['name'] as String,
-    type: json['type'] as String,
-    phone: json['phone'] as String,
+    listingId: json['listingId'] as String,
+    listingName: json['listingName'] as String,
   );
 }
 
 Map<String, dynamic> _$ListingToJson(Listing instance) => <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'type': instance.type,
-      'phone': instance.phone,
+      'listingId': instance.listingId,
+      'listingName': instance.listingName,
     };

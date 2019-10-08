@@ -19,7 +19,7 @@ class ListingsViewModel extends ChangeNotifier {
 
   Future<bool> fetchListings() async {
     setState(ViewState.Busy);
-    listings = await _listingService.fetchListings();
+    listings = await _listingService.fetchListings<List<Listing>, Listing>();
     setState(ViewState.Idle);
     return true;
   }

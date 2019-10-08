@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import '../models/listing.dart';
+import 'api_response_decoder.dart';
 
 /// The service responsible for networking requests
 class ListingService {
@@ -9,17 +9,15 @@ class ListingService {
 
   var client = new http.Client();
 
-  Future<List<Listing>> fetchListings() async {
-    List<Listing> listings;
-
+  // Future<List<Listing>> fetchListings() async {
+  Future<T> fetchListings<T, K>() async {
     // Get comments for post
-    final response = await client.get('$endpoint/listings');
+    final jsonReponse = await client.get('$endpoint/listings');
 
     // Parse into List
-    if (response.statusCode == 200) {
-      Iterable decoded = json.decode(response.body);
-      listings = decoded.map((var x) => Listing.fromJson(x)).toList();
-      return listings;
+    if (jsonReponse.statusCode == 200) {
+      final jsonBody = json.decode(jsonReponse.body);
+      return ResponseDecoder.fromJson<T, K>(jsonBody);
     } else {
       // If that response was not OK, throw an error.
       throw Exception('Failed to load post');

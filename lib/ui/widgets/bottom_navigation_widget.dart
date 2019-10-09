@@ -18,7 +18,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     HomeScreen(),
     SearchScreen(),
     ExploreScreen(),
-    AccountScreen(),
+    // AccountScreen(),
   ];
 
   @override
@@ -46,10 +46,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 icon: Icon(Icons.explore),
                 title: Text('Explore'),
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle),
-                title: Text('Account'),
-              ),
+              // BottomNavigationBarItem(
+              //   icon: Icon(Icons.account_circle),
+              //   title: Text('Account'),
+              // ),
             ],
           ),
         ),

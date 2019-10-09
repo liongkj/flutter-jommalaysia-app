@@ -1,3 +1,4 @@
+import 'package:jommalaysia/core/services/category_service.dart';
 import 'package:jommalaysia/core/services/listing_service.dart';
 import 'package:jommalaysia/core/services/location_service.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +16,9 @@ List<SingleChildCloneableWidget> independentServices = [
   ),
   Provider.value(
     value: LocationService(),
+  ),
+  Provider.value(
+    value: CategoryService(),
   )
 ];
 

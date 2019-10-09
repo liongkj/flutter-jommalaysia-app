@@ -1,3 +1,4 @@
+import 'package:jommalaysia/core/models/category.dart';
 import 'package:jommalaysia/core/models/listing.dart';
 import 'package:jommalaysia/core/services/api_response_model.dart';
 
@@ -12,6 +13,9 @@ class ResponseDecoder {
     }
     if (T == Listing) {
       return Listing.fromJson(json) as T;
+    }
+    if (T == Category) {
+      return Category.fromJson(json) as T;
     }
     // } else if (T == UserDetails) {
     //   //   return UserDetails.fromJson(json) as T;

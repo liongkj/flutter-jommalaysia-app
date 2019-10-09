@@ -18,7 +18,7 @@ class DropdownWidget extends StatelessWidget {
               padding: EdgeInsets.only(left: 8.0),
               child: DropdownButton<String>(
                 value: model.selectedLocation,
-                icon: Icon(Icons.arrow_drop_down),
+                icon: Icon(Icons.keyboard_arrow_down),
                 iconSize: 24,
                 elevation: 16,
                 style: Theme.of(context).textTheme.title,

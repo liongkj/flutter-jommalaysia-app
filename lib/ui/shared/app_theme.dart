@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 final appTheme = ThemeData(
-  primarySwatch: Colors.pink,
-  accentColor: Colors.amber,
   canvasColor: Color.fromRGBO(255, 254, 229, 1),
   fontFamily: 'OpenSans',
   textTheme: ThemeData.light().textTheme.copyWith(

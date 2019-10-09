@@ -1,14 +1,16 @@
 class RoutePaths {
   static const String LOGIN = 'login';
   static const String HOME = '/';
-  static const String LISTING = '/';
   // 'listing';
+  static const String LISTING = '/';
   static const String LISTINGINFO = 'listinginfo';
+//category
+  static const String SUBCATEGORYINFO = '';
   static const String NEARBY = 'nearby';
   static const String ACCOUNT = 'account';
 }
 
-class Name {
+class Constants {
   static const String APPNAME = 'Jom Malaysia';
 }
 

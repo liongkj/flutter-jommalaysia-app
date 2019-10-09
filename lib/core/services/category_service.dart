@@ -4,13 +4,13 @@ import 'package:http/http.dart' as http;
 import 'package:jommalaysia/core/constants/app_constants.dart';
 import 'api_response_decoder.dart';
 
-class ListingService {
-  static const endpoint = API.ENDPOINT + '/listings';
+class CategoryService {
+  static const endpoint = API.ENDPOINT + "/categories";
 
   var _client = new http.Client();
 
   // Future<List<Listing>> fetchListings() async {
-  Future<T> fetchListings<T, K>() async {
+  Future<T> fetchCategories<T, K>() async {
     // Get comments for post
     final jsonReponse = await _client.get('$endpoint');
 

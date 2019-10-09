@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'package:jommalaysia/ui/widgets/bottom_navigation_widget.dart';
+import 'package:jommalaysia/ui/widgets/home_appbar_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBarWidget(),
+      appBar: HomeAppBarWidget(
+        title: "test",
+      ),
       body: Center(
         child: Container(
           alignment: Alignment.center,

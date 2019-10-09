@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:jommalaysia/core/constants/app_constants.dart';
 import 'api_response_decoder.dart';
 
-/// The service responsible for networking requests
 class ListingService {
-  static const endpoint = 'https://jommalaysiaapi.azurewebsites.net/api/';
+  static const endpoint = API.ENDPOINT;
 
   var _client = new http.Client();
 

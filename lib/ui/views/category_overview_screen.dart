@@ -6,9 +6,7 @@ class CategoryOverviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(Name.APPNAME),
-      ),
+      // appBar: AppBarWidget(),
       body: ListingListWidget(),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[

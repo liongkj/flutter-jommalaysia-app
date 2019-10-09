@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:jommalaysia/core/models/listing.dart';
 
-class ListingListItem extends StatelessWidget {
+class ListingItem extends StatelessWidget {
   final Listing listing;
   final Function onTap;
 
-  const ListingListItem({@required this.listing, this.onTap});
+  const ListingItem({@required this.listing, this.onTap});
 
   @override
   Widget build(BuildContext context) {

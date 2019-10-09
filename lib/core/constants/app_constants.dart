@@ -11,3 +11,8 @@ class RoutePaths {
 class Name {
   static const String APPNAME = 'Jom Malaysia';
 }
+
+class API {
+  static const String ENDPOINT =
+      'https://jommalaysiaapi.azurewebsites.net/api/';
+}

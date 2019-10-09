@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:jommalaysia/core/viewmodels/home_viewmodel.dart';
+import 'package:jommalaysia/core/providers/navbar_provider.dart';
 import 'package:jommalaysia/ui/router.dart';
 import './ui/shared/app_theme.dart';
 import './provider_setup.dart';
@@ -23,9 +23,9 @@ class MyApp extends StatelessWidget {
         title: 'JomMalaysia',
         theme: appTheme,
         initialRoute: '/',
-        home: ChangeNotifierProvider<HomeViewModel>(
+        home: ChangeNotifierProvider<NavBarProvider>(
           child: BottomNavBar(),
-          builder: (context) => HomeViewModel(),
+          builder: (context) => NavBarProvider(),
         ),
         onGenerateRoute: Router.generateAndroidRoute,
         debugShowCheckedModeBanner: false,

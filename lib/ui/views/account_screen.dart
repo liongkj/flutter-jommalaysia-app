@@ -4,6 +4,7 @@ class AccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBarWidget(),
       body: Center(
           child: Container(
         alignment: Alignment.center,

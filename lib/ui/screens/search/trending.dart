@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../util/const.dart';
-import '../../util/restaurants.dart';
-import '../widgets/trending_item.dart';
+import 'package:jommalaysia/ui/widgets/trending_item.dart';
+import 'package:jommalaysia/util/restaurants.dart';
 
 class Trending extends StatefulWidget {
   @override

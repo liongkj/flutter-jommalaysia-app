@@ -4,7 +4,7 @@ import 'package:jommalaysia/ui/router.dart';
 import './util/const.dart';
 import './provider_setup.dart';
 import 'package:provider/provider.dart';
-import 'ui/screens/main_screen.dart';
+import 'ui/shared/main_screen.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations(

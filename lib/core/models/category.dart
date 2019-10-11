@@ -21,5 +21,7 @@ class Category {
 
   factory Category.fromJson(Map<String, dynamic> json) =>
       _$CategoryFromJson(json);
+
+  String get image => null;
   Map<String, dynamic> toJson() => _$CategoryToJson(this);
 }

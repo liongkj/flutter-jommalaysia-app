@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:jommalaysia/ui/widgets/my_appbar.dart';
-import '../screens/trending.dart';
-import '../../util/categories.dart';
-import '../../util/friends.dart';
-import '../../util/restaurants.dart';
-import '../widgets/slide_item.dart';
-import '../widgets/trending_item.dart';
+import './trending.dart';
+import '../../../util/categories.dart';
+import '../../../util/friends.dart';
+import '../../../util/restaurants.dart';
+import '../../widgets/slide_item.dart';
 
 class Search extends StatefulWidget {
   @override

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import 'package:jommalaysia/core/services/category_service.dart';
 import 'package:jommalaysia/core/services/listing_service.dart';
 import 'package:jommalaysia/core/services/location_service.dart';
@@ -11,15 +13,15 @@ List<SingleChildCloneableWidget> providers = [
 
 //These are classes/objects that do not depend on any other services to execute their logic
 List<SingleChildCloneableWidget> independentServices = [
-  Provider.value(
-    value: ListingService(),
-  ),
-  Provider.value(
-    value: LocationService(),
-  ),
-  Provider.value(
-    value: CategoryService(),
-  )
+  // Provider.value(
+  //   value: ListingService(),
+  // ),
+  // Provider.value(
+  //   value: LocationService(),
+  // ),
+  // Provider.value(
+  //   value: CategoryService(),
+  // ),
 ];
 
 //These are classes/object that depend on previously registered services

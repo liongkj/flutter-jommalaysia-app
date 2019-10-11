@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:jommalaysia/core/providers/navbar_provider.dart';
 import 'package:jommalaysia/ui/router.dart';
-import './ui/shared/app_theme.dart';
+import './util/const.dart';
 import './provider_setup.dart';
 import 'package:provider/provider.dart';
-
-import 'ui/widgets/bottom_navigation_widget.dart';
+import 'ui/screens/main_screen.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations(
@@ -20,20 +18,29 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  bool goDark = false;
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: goDark ? Constants.darkPrimary : Constants.lightPrimary,
+      statusBarIconBrightness: goDark ? Brightness.light : Brightness.dark,
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: providers,
       child: MaterialApp(
         title: 'JomMalaysia',
-        theme: appTheme,
+        theme: goDark ? Constants.darkTheme : Constants.lightTheme,
         initialRoute: '/',
-        home: ChangeNotifierProvider<NavBarProvider>(
-          child: BottomNavBar(),
-          builder: (context) => NavBarProvider(),
-        ),
-        onGenerateRoute: Router.generateAndroidRoute,
+        //onGenerateRoute: Router.generateAndroidRoute,
         debugShowCheckedModeBanner: false,
+        home: MainScreen(),
       ),
     );
   }

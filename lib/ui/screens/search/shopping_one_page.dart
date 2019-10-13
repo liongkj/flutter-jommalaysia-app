@@ -1,8 +1,7 @@
 // import 'package:flutter/material.dart';
-// import 'package:flutter_uikit/logic/bloc/product_bloc.dart';
-// import 'package:flutter_uikit/model/product.dart';
-// import 'package:flutter_uikit/ui/widgets/common_scaffold.dart';
+
 // import 'package:jommalaysia/core/models/category.dart';
+// import 'package:jommalaysia/ui/shared/common_scaffold.dart';
 
 // class CategoryGridScreen extends StatelessWidget {
 //   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -28,13 +27,13 @@
 //               children: <Widget>[
 //                 Expanded(
 //                   child: Text(
-//                     category.name,
+//                     category.categoryName,
 //                     softWrap: true,
 //                     overflow: TextOverflow.ellipsis,
 //                     style: TextStyle(color: Colors.white),
 //                   ),
 //                 ),
-//                 Text(category.count,
+//                 Text("10",
 //                     style: TextStyle(
 //                         color: Colors.yellow,
 //                         fontSize: 18.0,
@@ -56,7 +55,7 @@
 //                   padding: const EdgeInsets.all(8.0),
 //                   child: InkWell(
 //                     splashColor: Colors.yellow,
-//                     onDoubleTap: () => showSnackBar(),
+//                     onDoubleTap: () => {},
 //                     child: Material(
 //                       clipBehavior: Clip.antiAlias,
 //                       elevation: 2.0,
@@ -73,27 +72,15 @@
 //             .toList(),
 //       );
 
-//   Widget bodyData() {
-//     ProductBloc productBloc = ProductBloc();
-//     return StreamBuilder<List<Product>>(
-//         stream: productBloc.productItems,
-//         builder: (context, snapshot) {
-//           return snapshot.hasData
-//               ? productGrid(snapshot.data)
-//               : Center(child: CircularProgressIndicator());
-//         });
-//   }
-
-//   // void showSnackBar() {
-//   //   scaffoldKey.currentState.showSnackBar(SnackBar(
-//   //     content: Text(
-//   //       "Added to cart.",
-//   //     ),
-//   //     action: SnackBarAction(
-//   //       label: "Undo",
-//   //       onPressed: () {},
-//   //     ),
-//   //   ));
+//   // Widget bodyData() {
+//   //   ProductBloc productBloc = ProductBloc();
+//   //   return StreamBuilder<List<Product>>(
+//   //       stream: productBloc.productItems,
+//   //       builder: (context, snapshot) {
+//   //         return snapshot.hasData
+//   //             ? productGrid(snapshot.data)
+//   //             : Center(child: CircularProgressIndicator());
+//   //       });
 //   // }
 
 //   @override
@@ -105,7 +92,7 @@
 //       showDrawer: true,
 //       showFAB: false,
 //       actionFirstIcon: Icons.shopping_cart,
-//       bodyData: bodyData(),
+//       // bodyData: bodyData(),
 //     );
 //   }
 // }

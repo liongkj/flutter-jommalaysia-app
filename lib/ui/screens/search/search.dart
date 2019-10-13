@@ -32,7 +32,7 @@ class _SearchState extends State<Search>
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
-                  "Trending Restaurants",
+                  "Trending Listings",
                   style: TextStyle(
                     fontSize: 23,
                     fontWeight: FontWeight.w800,

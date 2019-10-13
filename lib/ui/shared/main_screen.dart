@@ -13,14 +13,14 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   PageController _pageController;
-
+  int _page = 0;
   @override
   Widget build(BuildContext context) {
     return (Scaffold(
       body: PageView(
         physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
-        // onPageChanged: page.onPageChanged,
+        onPageChanged: onPageChanged,
         children: <Widget>[
           Home(),
           Search(),
@@ -29,7 +29,10 @@ class _MainScreenState extends State<MainScreen> {
           Home(),
         ],
       ),
-      bottomNavigationBar: new BottomNavBar(pageController: _pageController),
+      bottomNavigationBar: BottomNavBar(
+        pageController: _pageController,
+        page: _page,
+      ),
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
@@ -52,5 +55,11 @@ class _MainScreenState extends State<MainScreen> {
   void dispose() {
     _pageController.dispose();
     super.dispose();
+  }
+
+  void onPageChanged(int page) {
+    setState(() {
+      this._page = page;
+    });
   }
 }

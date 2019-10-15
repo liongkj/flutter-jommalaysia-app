@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatelessWidget {
-  PageController pageController;
+  final PageController pageController;
   int page;
 
   get _page => page;
@@ -24,16 +24,16 @@ class BottomNavBar extends StatelessWidget {
             ),
             onPressed: () => pageController.jumpToPage(0),
           ),
-          IconButton(
-            color: _page == 1
-                ? Theme.of(context).accentColor
-                : Theme.of(context).textTheme.caption.color,
-            icon: Icon(
-              Icons.search,
-              size: 24.0,
-            ),
-            onPressed: () => pageController.jumpToPage(1),
-          ),
+          // IconButton(
+          //   color: _page == 1
+          //       ? Theme.of(context).accentColor
+          //       : Theme.of(context).textTheme.caption.color,
+          //   icon: Icon(
+          //     Icons.search,
+          //     size: 24.0,
+          //   ),
+          //   onPressed: () => pageController.jumpToPage(1),
+          // ),
           IconButton(
             color: _page == 2
                 ? Theme.of(context).accentColor
@@ -43,7 +43,7 @@ class BottomNavBar extends StatelessWidget {
               size: 24.0,
               color: Theme.of(context).primaryColor,
             ),
-            onPressed: () => pageController.jumpToPage(2),
+            onPressed: () => pageController.jumpToPage(1),
           ),
           IconButton(
             color: _page == 3
@@ -53,18 +53,18 @@ class BottomNavBar extends StatelessWidget {
               Icons.event,
               size: 24.0,
             ),
-            onPressed: () => pageController.jumpToPage(3),
+            onPressed: () => pageController.jumpToPage(2),
           ),
-          IconButton(
-            color: _page == 4
-                ? Theme.of(context).accentColor
-                : Theme.of(context).textTheme.caption.color,
-            icon: Icon(
-              Icons.person,
-              size: 24.0,
-            ),
-            onPressed: () => pageController.jumpToPage(4),
-          ),
+          // IconButton(
+          //   color: _page == 4
+          //       ? Theme.of(context).accentColor
+          //       : Theme.of(context).textTheme.caption.color,
+          //   icon: Icon(
+          //     Icons.person,
+          //     size: 24.0,
+          //   ),
+          //   onPressed: () => pageController.jumpToPage(4),
+          // ),
           SizedBox(width: 7),
         ],
       ),

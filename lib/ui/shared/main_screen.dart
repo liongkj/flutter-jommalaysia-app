@@ -23,10 +23,10 @@ class _MainScreenState extends State<MainScreen> {
         onPageChanged: onPageChanged,
         children: <Widget>[
           Home(),
-          Search(),
+          // Search(),
           Maps(),
           Event(),
-          Home(),
+          // Home(),
         ],
       ),
       bottomNavigationBar: BottomNavBar(
@@ -40,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
         child: Icon(
           Icons.near_me,
         ),
-        onPressed: () => _pageController.jumpToPage(2),
+        onPressed: () => _pageController.jumpToPage(1),
       ),
     ));
   }

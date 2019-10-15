@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:jommalaysia/ui/screens/home/private_listing.dart';
 import 'package:jommalaysia/ui/widgets/my_appbar.dart';
+
+import 'gov_listing.dart';
+import 'nearby_listing.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,10 +17,22 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-      appBar: MyAppBar(searchControl: _searchControl),
+      appBar: MyAppBar(
+        searchControl: _searchControl,
+      ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
-        child: Text("Home"),
+        child: ListView(
+          children: <Widget>[
+            SizedBox(height: 20.0),
+            NearbyListings(),
+            SizedBox(height: 10.0),
+            PrivateListings(),
+            SizedBox(height: 20.0),
+            GovListings(),
+            SizedBox(height: 30.0),
+          ],
+        ),
       ),
     );
   }

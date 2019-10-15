@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatelessWidget {
   final PageController pageController;
-  int page;
+  final int page;
 
   get _page => page;
   BottomNavBar({this.pageController, this.page});

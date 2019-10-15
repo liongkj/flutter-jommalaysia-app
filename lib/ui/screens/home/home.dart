@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jommalaysia/ui/screens/home/private_listing.dart';
+import 'package:jommalaysia/ui/screens/home/upcoming_event.dart';
 import 'package:jommalaysia/ui/widgets/my_appbar.dart';
 
 import 'gov_listing.dart';
@@ -30,6 +31,8 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
             PrivateListings(),
             SizedBox(height: 20.0),
             GovListings(),
+            SizedBox(height: 30.0),
+            UpcomingEvents(),
             SizedBox(height: 30.0),
           ],
         ),

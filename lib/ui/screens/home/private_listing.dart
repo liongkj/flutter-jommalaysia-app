@@ -9,7 +9,7 @@ class PrivateListings extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text(
-            "Category",
+            "Private Owned",
             style: TextStyle(
               fontSize: 23,
               fontWeight: FontWeight.w800,

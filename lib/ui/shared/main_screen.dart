@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:jommalaysia/ui/screens/event/event.dart';
 import 'package:jommalaysia/ui/screens/home/home.dart';
 import 'package:jommalaysia/ui/screens/maps/maps.dart';
-import 'package:jommalaysia/ui/screens/search/search.dart';
 import 'bottom_navbar.dart';
 
 class MainScreen extends StatefulWidget {

@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 import '../../util/const.dart';
 
 class SlideItem extends StatefulWidget {
-  final String img;
-  final String title;
-  final String address;
-  final String rating;
-
   SlideItem({
     Key key,
     @required this.img,
@@ -14,6 +9,11 @@ class SlideItem extends StatefulWidget {
     @required this.address,
     @required this.rating,
   }) : super(key: key);
+
+  final String img;
+  final String title;
+  final String address;
+  final String rating;
 
   @override
   _SlideItemState createState() => _SlideItemState();

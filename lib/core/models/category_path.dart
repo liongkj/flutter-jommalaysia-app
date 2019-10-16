@@ -4,11 +4,13 @@ part 'category_path.g.dart';
 
 @JsonSerializable()
 class CategoryPath {
-  final String category;
-  final String subcategory;
   CategoryPath({this.category, this.subcategory});
 
   factory CategoryPath.fromJson(Map<String, dynamic> json) =>
       _$CategoryPathFromJson(json);
+
+  final String category;
+  final String subcategory;
+
   Map<String, dynamic> toJson() => _$CategoryPathToJson(this);
 }

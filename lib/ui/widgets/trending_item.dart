@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 import '../../util/const.dart';
 
 class TrendingItem extends StatefulWidget {
-  final String img;
-  final String title;
-  final String address;
-  final String rating;
-
   TrendingItem({
     Key key,
     @required this.img,
@@ -14,6 +9,11 @@ class TrendingItem extends StatefulWidget {
     @required this.address,
     @required this.rating,
   }) : super(key: key);
+
+  final String img;
+  final String title;
+  final String address;
+  final String rating;
 
   @override
   _TrendingItemState createState() => _TrendingItemState();

@@ -13,7 +13,7 @@ class Search extends StatefulWidget {
 
 class _SearchState extends State<Search>
     with AutomaticKeepAliveClientMixin<Search> {
-  final TextEditingController _searchControl = new TextEditingController();
+  final TextEditingController _searchControl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

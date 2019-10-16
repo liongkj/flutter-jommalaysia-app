@@ -8,7 +8,7 @@ class Trending extends StatefulWidget {
 }
 
 class _TrendingState extends State<Trending> {
-  final TextEditingController _searchControl = new TextEditingController();
+  final TextEditingController _searchControl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

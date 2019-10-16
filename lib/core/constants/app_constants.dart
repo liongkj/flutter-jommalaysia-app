@@ -1,20 +1,20 @@
 class RoutePaths {
-  static const String LOGIN = 'login';
-  static const String HOME = '/';
+  static const String login = 'login';
+  static const String home = '/';
   // 'listing';
-  static const String LISTING = '/';
-  static const String LISTINGINFO = 'listinginfo';
+  static const String listing = '/';
+  static const String listingInfo = 'listinginfo';
 //category
-  static const String SUBCATEGORYINFO = '';
-  static const String NEARBY = 'nearby';
-  static const String ACCOUNT = 'account';
+  static const String subcategoryInfo = '';
+  static const String nearby = 'nearby';
+  static const String account = 'account';
 }
 
 class Constants {
-  static const String APPNAME = 'Jom Malaysia';
+  static const String appName = 'Jom Malaysia';
 }
 
 class API {
-  static const String ENDPOINT =
+  static const String endpoint =
       'https://jommalaysiaapi.azurewebsites.net/api/';
 }

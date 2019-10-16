@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatelessWidget {
+  BottomNavBar({this.pageController, this.page});
+
   final PageController pageController;
   final int page;
 
-  get _page => page;
-  BottomNavBar({this.pageController, this.page});
+  int get _page => page;
+
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      child: new Row(
+      child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

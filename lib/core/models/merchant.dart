@@ -4,13 +4,13 @@ part 'merchant.g.dart';
 
 @JsonSerializable()
 class Merchant {
-  String merchantId;
-  String companyName;
-
   Merchant({this.merchantId, this.companyName});
 
   factory Merchant.fromJson(Map<String, dynamic> json) =>
       _$MerchantFromJson(json);
+
+  String merchantId;
+  String companyName;
 
   Map<String, dynamic> toJson() => _$MerchantToJson(this);
 }

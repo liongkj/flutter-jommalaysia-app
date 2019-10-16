@@ -7,7 +7,7 @@ import 'api_response_decoder.dart';
 class LocationService {
   static const endpoint = '';
 
-  var _client = new http.Client();
+  var _client = http.Client();
 
   Future fetchUserLocation() async {
     return 'N9';
@@ -25,7 +25,7 @@ class LocationService {
     // }
 
     //TODO fetch from firebase?
-    List<String> states = new List<String>();
+    List<String> states = List<String>();
     states.add("N9");
     states.add("JHR");
     return states;

@@ -5,9 +5,9 @@ import 'package:jommalaysia/core/constants/app_constants.dart';
 import 'api_response_decoder.dart';
 
 class CategoryService {
-  static const endpoint = API.ENDPOINT + "/categories";
+  static const endpoint = API.endpoint + "/categories";
 
-  var _client = new http.Client();
+  var _client = http.Client();
 
   // Future<List<Listing>> fetchListings() async {
   Future<T> fetchCategories<T, K>() async {

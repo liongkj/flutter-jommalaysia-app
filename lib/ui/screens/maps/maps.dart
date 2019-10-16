@@ -19,6 +19,7 @@ class Maps extends StatelessWidget {
 class Map extends StatefulWidget {
   Map({Key key}) : super(key: key);
 
+  @override
   _MapState createState() => _MapState();
 }
 

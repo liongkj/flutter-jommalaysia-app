@@ -5,9 +5,9 @@ import 'package:jommalaysia/core/constants/app_constants.dart';
 import 'api_response_decoder.dart';
 
 class ListingService {
-  static const endpoint = API.ENDPOINT + '/listings';
+  static const endpoint = API.endpoint + '/listings';
 
-  var _client = new http.Client();
+  var _client = http.Client();
 
   // Future<List<Listing>> fetchListings() async {
   Future<T> fetchListings<T, K>() async {

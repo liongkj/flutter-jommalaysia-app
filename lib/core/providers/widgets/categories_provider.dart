@@ -5,18 +5,18 @@ import 'package:jommalaysia/core/providers/base_provider.dart';
 import 'package:jommalaysia/core/services/category_service.dart';
 
 class CategoriesProvider extends BaseProvider {
-  CategoryService _categoryService;
-
   CategoriesProvider({@required CategoryService categoryService})
       : _categoryService = categoryService;
+
+  CategoryService _categoryService;
 
   List<Category> categoryList;
 
   Future<bool> fetchCategories() async {
-    setState(ViewState.Busy);
+    setState(ViewState.busy);
     categoryList =
         await _categoryService.fetchCategories<List<Category>, Category>();
-    setState(ViewState.Idle);
+    setState(ViewState.idle);
     return true;
   }
 }

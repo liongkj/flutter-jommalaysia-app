@@ -4,37 +4,37 @@ import 'package:jommalaysia/core/providers/base_provider.dart';
 import 'package:jommalaysia/core/services/location_service.dart';
 
 class StateDropdownProvider extends BaseProvider {
-  final LocationService _locationService;
-
   StateDropdownProvider({@required LocationService locationService})
       : _locationService = locationService;
+
+  final LocationService _locationService;
 
   List<String> _stateList;
   List<String> get stateList => _stateList;
 
   String _selectedLocation;
-  get selectedLocation => _selectedLocation;
+  String get selectedLocation => _selectedLocation;
 
   String _currentLocation;
-  get currentLocation => _currentLocation;
+  String get currentLocation => _currentLocation;
 
   Future<void> populateDropdown() async {
-    getCurrentLocation();
-    getStateList();
+    await getCurrentLocation();
+    await getStateList();
   }
 
   Future<bool> getCurrentLocation() async {
-    setState(ViewState.Busy);
+    setState(ViewState.busy);
     _currentLocation = await _locationService.fetchUserLocation();
     _selectedLocation = _currentLocation;
-    setState(ViewState.Idle);
+    setState(ViewState.idle);
     return true;
   }
 
   Future<bool> getStateList() async {
-    setState(ViewState.Busy);
+    setState(ViewState.busy);
     _stateList = await _locationService.fetchEnabledStates();
-    setState(ViewState.Idle);
+    setState(ViewState.idle);
     return true;
   }
 

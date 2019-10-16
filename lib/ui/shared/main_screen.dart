@@ -7,6 +7,7 @@ import 'bottom_navbar.dart';
 class MainScreen extends StatefulWidget {
   MainScreen({Key key}) : super(key: key);
 
+  @override
   _MainScreenState createState() => _MainScreenState();
 }
 

@@ -16,7 +16,7 @@ class _MainScreenState extends State<MainScreen> {
   int _page = 0;
   @override
   Widget build(BuildContext context) {
-    return (Scaffold(
+    return Scaffold(
       body: PageView(
         physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
@@ -42,7 +42,7 @@ class _MainScreenState extends State<MainScreen> {
         ),
         onPressed: () => _pageController.jumpToPage(1),
       ),
-    ));
+    );
   }
 
   @override

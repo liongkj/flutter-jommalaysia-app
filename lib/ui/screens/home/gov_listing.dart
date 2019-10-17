@@ -19,8 +19,8 @@ class GovListings extends StatelessWidget {
             child: Text(
               "See all (9)",
               style: TextStyle(
-//                      fontSize: 22,
-//                      fontWeight: FontWeight.w800,
+                fontSize: 22,
+                fontWeight: FontWeight.w800,
                 color: Theme.of(context).accentColor,
               ),
             ),

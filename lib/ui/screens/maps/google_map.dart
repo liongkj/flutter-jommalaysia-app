@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:jommalaysia/util/restaurants.dart';
 
 class GoogleMaps extends StatefulWidget {
   GoogleMaps({Key key}) : super(key: key);
@@ -9,13 +10,34 @@ class GoogleMaps extends StatefulWidget {
 }
 
 class _MapState extends State<GoogleMaps> {
-  GoogleMapController mapController;
+  GoogleMapController _controller;
 
-  final LatLng _center = const LatLng(45.521563, -122.677433);
+  List<Marker> _nearbyListing = [];
+  final LatLng _center = const LatLng(40.7128, -74.0060);
 
   void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
-    print("google map");
+    setState(() {
+      _controller = controller;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    restaurants.forEach((loc) {
+      _nearbyListing.add(
+        Marker(
+            markerId: MarkerId(
+              loc["title"],
+            ),
+            draggable: false,
+            infoWindow: InfoWindow(
+              title: loc["title"],
+              snippet: loc["address"],
+            ),
+            position: loc["LatLng"]),
+      );
+    });
   }
 
   @override
@@ -28,14 +50,7 @@ class _MapState extends State<GoogleMaps> {
           target: _center,
           zoom: 12.0,
         ),
-        markers: {
-          Marker(
-            markerId: MarkerId("test marker"),
-            position: _center,
-            infoWindow: InfoWindow(title: "KFC"),
-            icon: BitmapDescriptor.defaultMarker,
-          )
-        },
+        markers: Set.from(_nearbyListing),
       ),
     );
   }

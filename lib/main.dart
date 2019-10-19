@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
         title: 'JomMalaysia',
         theme: goDark ? Constants.darkTheme : Constants.lightTheme,
         initialRoute: '/',
-        //onGenerateRoute: Router.generateAndroidRoute,
+        onGenerateRoute: Router.generateAndroidRoute,
         debugShowCheckedModeBanner: false,
         home: MainScreen(),
       ),

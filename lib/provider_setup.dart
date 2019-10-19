@@ -19,9 +19,9 @@ List<SingleChildCloneableWidget> independentServices = [
   // Provider.value(
   //   value: LocationService(),
   // ),
-  // Provider.value(
-  //   value: CategoryService(),
-  // ),
+  Provider.value(
+    value: CategoryService(),
+  ),
 ];
 
 //These are classes/object that depend on previously registered services

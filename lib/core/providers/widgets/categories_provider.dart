@@ -10,13 +10,37 @@ class CategoriesProvider extends BaseProvider {
 
   CategoryService _categoryService;
 
-  List<Category> categoryList;
+  List<Category> categoryList, categories = [], subcategories = [];
+  bool IsComingSoon = false;
 
-  Future<bool> fetchCategories() async {
+  bool isComingSoon(Category cat) {
+    return getSubcategory(cat).isEmpty;
+  }
+
+  Future<bool> prepareData() async {
     setState(ViewState.busy);
-    categoryList =
-        await _categoryService.fetchCategories<List<Category>, Category>();
+    await fetchCategories();
+    categoryList.forEach(
+      (c) {
+        if (c.categoryPath.subcategory == null) {
+          categories.add(c);
+        } else {
+          subcategories.add(c);
+        }
+      },
+    );
     setState(ViewState.idle);
     return true;
+  }
+
+  Future<void> fetchCategories() async {
+    categoryList =
+        await _categoryService.fetchCategories<List<Category>, Category>();
+  }
+
+  List<Category> getSubcategory(Category cat) {
+    return subcategories
+        .where((c) => c.categoryPath.category == cat.categoryPath.category)
+        .toList();
   }
 }

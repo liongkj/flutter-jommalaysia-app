@@ -4,14 +4,12 @@ Jom Malaysia Android and IOS App
 
 TODO
 
-Search
-fix shoping_one_page.dart
-
 maps
 add map to show nearby listings based on user current location
 
 home
 normal courasell?
+[ ] to change category grid
 
 event
 refer to google calender tutorial

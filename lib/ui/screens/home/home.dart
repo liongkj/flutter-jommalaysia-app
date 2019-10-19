@@ -3,8 +3,8 @@ import 'package:jommalaysia/ui/screens/home/private_listing.dart';
 import 'package:jommalaysia/ui/screens/home/upcoming_event.dart';
 import 'package:jommalaysia/ui/widgets/my_appbar.dart';
 
+import 'category_scroll_list.dart';
 import 'gov_listing.dart';
-import 'nearby_listing.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -26,7 +26,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
         child: ListView(
           children: <Widget>[
             SizedBox(height: 20.0),
-            NearbyListings(),
+            CategoryScrollList(),
             SizedBox(height: 10.0),
             PrivateListings(),
             SizedBox(height: 20.0),

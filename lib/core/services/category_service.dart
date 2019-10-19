@@ -9,9 +9,7 @@ class CategoryService {
 
   var _client = http.Client();
 
-  // Future<List<Listing>> fetchListings() async {
   Future<T> fetchCategories<T, K>() async {
-    // Get comments for post
     final jsonReponse = await _client.get('$endpoint');
 
     // Parse into List
@@ -20,7 +18,7 @@ class CategoryService {
       return ResponseDecoder.fromJson<T, K>(jsonBody);
     } else {
       // If that response was not OK, throw an error.
-      throw Exception('Failed to load post');
+      throw Exception('Failed to load categories');
     }
   }
 }

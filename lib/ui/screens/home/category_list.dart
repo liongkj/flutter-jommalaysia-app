@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:jommalaysia/ui/widgets/trending_item.dart';
-import 'package:jommalaysia/util/restaurants.dart';
+import 'package:jommalaysia/core/models/category.dart';
+import 'package:jommalaysia/ui/widgets/home/list_card_item.dart';
 
-class Trending extends StatefulWidget {
+class CategoryList extends StatefulWidget {
+  CategoryList({@required this.categoryList});
+  final List<Category> categoryList;
   @override
-  _TrendingState createState() => _TrendingState();
+  _SubcategoryState createState() => _SubcategoryState();
 }
 
-class _TrendingState extends State<Trending> {
+class _SubcategoryState extends State<CategoryList> {
   final TextEditingController _searchControl = TextEditingController();
 
   @override
@@ -15,7 +17,7 @@ class _TrendingState extends State<Trending> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        title: Text("Trending Restaurants"),
+        title: Text("Categories"),
         centerTitle: true,
         automaticallyImplyLeading: false,
         leading: IconButton(
@@ -75,21 +77,20 @@ class _TrendingState extends State<Trending> {
               ),
             ),
             SizedBox(height: 10.0),
-            ListView.builder(
+            GridView.builder(
               primary: false,
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount: restaurants == null ? 0 : restaurants.length,
+              itemCount:
+                  widget.categoryList == null ? 0 : widget.categoryList.length,
               itemBuilder: (BuildContext context, int index) {
-                Map restaurant = restaurants[index];
-
-                return TrendingItem(
-                  img: restaurant["img"],
-                  title: restaurant["title"],
-                  address: restaurant["address"],
-                  rating: restaurant["rating"],
+                return ListCardItem(
+                  category: widget.categoryList[index],
                 );
               },
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+              ),
             ),
             SizedBox(height: 10.0),
           ],

@@ -23,10 +23,8 @@ class _MainScreenState extends State<MainScreen> {
         onPageChanged: onPageChanged,
         children: <Widget>[
           Home(),
-          // Search(),
           Maps(),
           Event(),
-          // Home(),
         ],
       ),
       bottomNavigationBar: BottomNavBar(

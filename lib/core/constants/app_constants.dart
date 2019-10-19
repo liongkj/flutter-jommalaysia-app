@@ -1,10 +1,9 @@
 class RoutePaths {
   static const String login = 'login';
   static const String home = '/';
-  // 'listing';
-  static const String listing = '/';
-  static const String listingInfo = 'listinginfo';
+
 //category
+  static const String categoryList = 'categorylist';
   static const String subcategoryInfo = '';
   static const String nearby = 'nearby';
   static const String account = 'account';

@@ -6,7 +6,7 @@ class ListingLogoThumbnail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.transparent,
-      height: MediaQuery.of(context).size.height * 0.3,
+      height: 100,
       width: double.infinity,
       child: ClipRRect(
         borderRadius: BorderRadius.only(

@@ -29,9 +29,7 @@ class _MapState extends State<GoogleMaps> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    widget.pageController =
-        PageController(initialPage: 1, viewportFraction: 0.8)
-          ..addListener(_onScroll);
+    widget.pageController.addListener(_onScroll);
   }
 
   void _onScroll() {

@@ -23,21 +23,30 @@ class _MapsState extends State<Maps> {
   @override
   void initState() {
     super.initState();
+    _pageController = PageController(initialPage: 1, viewportFraction: 0.8);
+    restaurants.forEach(
+      (loc) {
+        _nearbyListing.add(
+          Marker(
+              markerId: MarkerId(
+                loc["title"],
+              ),
+              draggable: false,
+              infoWindow: InfoWindow(
+                title: loc["title"],
+                snippet: loc["address"],
+              ),
+              position: loc["LatLng"]),
+        );
+      },
+    );
+  }
 
-    restaurants.forEach((loc) {
-      _nearbyListing.add(
-        Marker(
-            markerId: MarkerId(
-              loc["title"],
-            ),
-            draggable: false,
-            infoWindow: InfoWindow(
-              title: loc["title"],
-              snippet: loc["address"],
-            ),
-            position: loc["LatLng"]),
-      );
-    });
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _pageController.dispose();
   }
 
   @override

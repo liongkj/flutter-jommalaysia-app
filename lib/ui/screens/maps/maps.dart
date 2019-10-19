@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:jommalaysia/core/models/place_location.dart';
 import 'package:jommalaysia/ui/screens/maps/listing_list.dart';
 import 'package:jommalaysia/util/categories.dart';
 import 'package:jommalaysia/util/restaurants.dart';
@@ -18,7 +19,10 @@ class Maps extends StatefulWidget {
 class _MapsState extends State<Maps> {
   PageController _pageController;
   List<Marker> _nearbyListing = [];
-  final LatLng _center = const LatLng(40.7128, -74.0060);
+  final PlaceLocation _center = const PlaceLocation(
+    latitude: 40.7128,
+    longitude: -74.0060,
+  );
 
   @override
   void initState() {
@@ -44,7 +48,6 @@ class _MapsState extends State<Maps> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _pageController.dispose();
   }

@@ -18,7 +18,6 @@ class ListingList extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 0.4,
         width: MediaQuery.of(context).size.width,
         child: PageView.builder(
-          
           pageSnapping: true,
           controller: pageController,
           itemCount: noOfListing,

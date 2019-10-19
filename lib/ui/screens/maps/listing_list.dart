@@ -12,10 +12,10 @@ class ListingList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 20.0,
+      height: MediaQuery.of(context).size.height * 0.41,
+      bottom: 1.0,
       child: Container(
         color: Colors.transparent,
-        height: MediaQuery.of(context).size.height * 0.4,
         width: MediaQuery.of(context).size.width,
         child: PageView.builder(
           pageSnapping: true,

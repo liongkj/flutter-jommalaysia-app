@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jommalaysia/core/models/category.dart';
-import 'package:jommalaysia/ui/screens/home/category_list.dart';
+import 'package:jommalaysia/ui/screens/home/category_grid.dart';
 import '../core/constants/app_constants.dart';
 import 'screens/home/home.dart';
 
@@ -11,11 +10,9 @@ class Router {
         return MaterialPageRoute(builder: (_) => Home());
       // return MaterialPageRoute(builder: (_) => SearchViewScreen());
       case RoutePaths.categoryList:
-        var categories = settings.arguments as List<Category>;
+        // var categories = settings.arguments as List<Category>;
         return MaterialPageRoute(
-          builder: (_) => CategoryList(
-            categoryList: categories,
-          ),
+          builder: (_) => CategoryGrid(),
         );
 
       default:

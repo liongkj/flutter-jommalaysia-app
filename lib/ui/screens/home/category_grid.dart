@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:jommalaysia/core/models/category.dart';
+import 'package:jommalaysia/core/providers/categories_provider.dart';
 import 'package:jommalaysia/ui/widgets/home/list_card_item.dart';
+import 'package:provider/provider.dart';
 
-class CategoryList extends StatefulWidget {
-  CategoryList({@required this.categoryList});
-  final List<Category> categoryList;
+class CategoryGrid extends StatefulWidget {
+  // CategoryList({@required this.categoryList});
+
   @override
-  _SubcategoryState createState() => _SubcategoryState();
+  _CategoryGridState createState() => _CategoryGridState();
 }
 
-class _SubcategoryState extends State<CategoryList> {
+class _CategoryGridState extends State<CategoryGrid> {
   final TextEditingController _searchControl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final model = Provider.of<CategoriesProvider>(context);
+    final categories = model.categories;
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
@@ -81,11 +85,11 @@ class _SubcategoryState extends State<CategoryList> {
               primary: false,
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount:
-                  widget.categoryList == null ? 0 : widget.categoryList.length,
+              itemCount: categories == null ? 0 : categories.length,
               itemBuilder: (BuildContext context, int index) {
                 return ListCardItem(
-                  category: widget.categoryList[index],
+                  category: categories[index],
+                  comingSoon: model.isComingSoon(categories[index]),
                 );
               },
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

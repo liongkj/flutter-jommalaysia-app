@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:jommalaysia/core/providers/categories_provider.dart';
 import 'package:jommalaysia/ui/screens/home/private_listing.dart';
 import 'package:jommalaysia/ui/screens/home/upcoming_event.dart';
 import 'package:jommalaysia/ui/widgets/my_appbar.dart';
+import 'package:provider/provider.dart';
 
 import 'category_scroll_list.dart';
 import 'gov_listing.dart';

@@ -7,6 +7,8 @@ import 'package:jommalaysia/core/services/location_service.dart';
 import 'package:jommalaysia/ui/widgets/home/list_card_item.dart';
 import 'package:provider/provider.dart';
 
+import 'core/providers/category.dart';
+
 List<SingleChildCloneableWidget> providers = [
   ...independentServices,
   ...dependentServices,
@@ -26,7 +28,7 @@ List<SingleChildCloneableWidget> dependentServices = [
     builder: (context) => CategoriesProvider(
       categoryService: CategoryService(),
     ),
-  )
+  ),
 ];
 
 //These are values that you want to consume directly in the UI. You can add values here if you would have to introduce a property on most, if not all your models just to get the data out. In our case the user information. If we don't provide it here then all the models will have a user property on it. You could also just add it to the BaseModel, but I digress.

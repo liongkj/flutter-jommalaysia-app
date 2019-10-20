@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jommalaysia/core/constants/app_constants.dart';
 import 'package:jommalaysia/core/models/category.dart';
 import 'package:jommalaysia/core/providers/categories_provider.dart';
 import 'package:jommalaysia/ui/widgets/home/list_card_item.dart';
@@ -88,9 +89,16 @@ class _CategoryGridState extends State<CategoryGrid> {
               itemCount: categories == null ? 0 : categories.length,
               itemBuilder: (BuildContext context, int index) {
                 return ListCardItem(
-                  category: categories[index],
-                  comingSoon: model.isComingSoon(categories[index]),
-                );
+                    category: categories[index],
+                    subs: model.getSubcategory(categories[index]),
+                    comingSoon: model.isComingSoon(categories[index]),
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        RoutePaths.categoryGrid,
+                        // arguments: model.categoryList,
+                      );
+                    });
               },
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,

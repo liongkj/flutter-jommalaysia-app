@@ -9,7 +9,7 @@ class Router {
       case '/':
         return MaterialPageRoute(builder: (_) => Home());
       // return MaterialPageRoute(builder: (_) => SearchViewScreen());
-      case RoutePaths.categoryList:
+      case RoutePaths.categoryGrid:
         // var categories = settings.arguments as List<Category>;
         return MaterialPageRoute(
           builder: (_) => CategoryGrid(),

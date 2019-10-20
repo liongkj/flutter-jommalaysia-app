@@ -45,7 +45,7 @@ class CategoryScrollList extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(
                           context,
-                          RoutePaths.categoryList,
+                          RoutePaths.categoryGrid,
                           // arguments: model.categoryList,
                         );
                       },

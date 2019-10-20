@@ -3,7 +3,7 @@ class RoutePaths {
   static const String home = '/';
 
 //category
-  static const String categoryList = 'categorylist';
+  static const String categoryGrid = 'categorygrid';
   static const String subcategoryInfo = '';
   static const String nearby = 'nearby';
   static const String account = 'account';

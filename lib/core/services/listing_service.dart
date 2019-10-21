@@ -2,17 +2,20 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:jommalaysia/core/constants/app_constants.dart';
+import 'package:jommalaysia/core/models/category.dart';
 import 'api_response_decoder.dart';
 
 class ListingService {
-  static const endpoint = API.endpoint + '/listings';
+  static const String endpoint = API.endpoint + '/listings';
+  String queryCategory = '?category=';
 
   var _client = http.Client();
 
   // Future<List<Listing>> fetchListings() async {
-  Future<T> fetchListings<T, K>() async {
+  Future<T> fetchListings<T, K>(Category category) async {
     // Get comments for post
-    final jsonReponse = await _client.get('$endpoint');
+    String request = endpoint + 'query' + queryCategory + category.categoryId;
+    final jsonReponse = await _client.get('$request');
 
     // Parse into List
     if (jsonReponse.statusCode == 200) {

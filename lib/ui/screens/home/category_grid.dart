@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jommalaysia/core/constants/app_constants.dart';
-import 'package:jommalaysia/core/models/category.dart';
 import 'package:jommalaysia/core/providers/categories_provider.dart';
-import 'package:jommalaysia/ui/widgets/home/list_card_item.dart';
+import 'package:jommalaysia/ui/widgets/home/category_card_item.dart';
 import 'package:provider/provider.dart';
 
 class CategoryGrid extends StatefulWidget {
@@ -88,15 +87,19 @@ class _CategoryGridState extends State<CategoryGrid> {
               physics: NeverScrollableScrollPhysics(),
               itemCount: categories == null ? 0 : categories.length,
               itemBuilder: (BuildContext context, int index) {
-                return ListCardItem(
+                return CategoryCardItem(
                     category: categories[index],
                     subs: model.getSubcategory(categories[index]),
                     comingSoon: model.isComingSoon(categories[index]),
                     onTap: () {
+                      print("tap categoryitem");
                       Navigator.pushNamed(
                         context,
-                        RoutePaths.categoryGrid,
-                        // arguments: model.categoryList,
+                        RoutePaths.subcategoryGrid,
+                        arguments: {
+                          "selected": categories[index],
+                          "subcategoryList": model.subcategories
+                        },
                       );
                     });
               },

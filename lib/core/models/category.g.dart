@@ -15,6 +15,9 @@ Category _$CategoryFromJson(Map<String, dynamic> json) {
     categoryPath: json['categoryPath'] == null
         ? null
         : CategoryPath.fromJson(json['categoryPath'] as Map<String, dynamic>),
+    image: json['image'] == null
+        ? null
+        : Image.fromJson(json['image'] as Map<String, dynamic>),
   );
 }
 
@@ -24,4 +27,5 @@ Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
       'categoryNameMs': instance.categoryNameMs,
       'categoryNameZh': instance.categoryNameZh,
       'categoryPath': instance.categoryPath,
+      'image': instance.image,
     };

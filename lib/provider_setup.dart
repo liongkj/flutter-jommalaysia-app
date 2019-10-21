@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:jommalaysia/core/providers/listings_provider.dart';
+import 'package:jommalaysia/core/services/listing_service.dart';
 import './core/providers/categories_provider.dart';
 
 import 'package:jommalaysia/core/services/category_service.dart';
-import 'package:jommalaysia/core/services/listing_service.dart';
-import 'package:jommalaysia/core/services/location_service.dart';
-import 'package:jommalaysia/ui/widgets/home/list_card_item.dart';
 import 'package:provider/provider.dart';
-
-import 'core/providers/category.dart';
 
 List<SingleChildCloneableWidget> providers = [
   ...independentServices,
@@ -20,6 +17,9 @@ List<SingleChildCloneableWidget> independentServices = [
   Provider.value(
     value: CategoryService(),
   ),
+  Provider.value(
+    value: ListingService(),
+  )
 ];
 
 //These are classes/object that depend on previously registered services
@@ -27,6 +27,11 @@ List<SingleChildCloneableWidget> dependentServices = [
   ChangeNotifierProvider<CategoriesProvider>(
     builder: (context) => CategoriesProvider(
       categoryService: CategoryService(),
+    ),
+  ),
+  ChangeNotifierProvider<ListingsProvider>(
+    builder: (context) => ListingsProvider(
+      listingService: ListingService(),
     ),
   ),
 ];

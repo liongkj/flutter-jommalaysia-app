@@ -19,7 +19,7 @@ class Listing {
     // this.address,
     // this.status,
     this.listingType,
-    // this.category,
+    this.category,
     // this.createdAt,
     // this.modifiedAt,
   });
@@ -35,7 +35,7 @@ class Listing {
   // Address address;
   // String status;
   ListingType listingType;
-  // Category category;
+  Category category;
   // String createdAt;
   // String modifiedAt;
 

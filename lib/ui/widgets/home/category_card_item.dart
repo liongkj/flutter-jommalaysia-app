@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jommalaysia/core/models/category.dart';
 
-class ListCardItem extends StatelessWidget {
-  ListCardItem(
+class CategoryCardItem extends StatelessWidget {
+  CategoryCardItem(
       {Key key,
       @required this.category,
       @required this.subs,
@@ -29,9 +29,7 @@ class ListCardItem extends StatelessWidget {
           ),
           elevation: 3.0,
           child: InkWell(
-            onTap: () {
-              onTap;
-            },
+            onTap: onTap,
             child: Column(
               children: <Widget>[
                 Stack(
@@ -44,8 +42,8 @@ class ListCardItem extends StatelessWidget {
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
                         ),
-                        child: Image.asset(
-                          "${category.categoryNameMs}",
+                        child: Image.network(
+                          "${category.image.thumbnailUrl}",
                           fit: BoxFit.fill,
                         ),
                       ),

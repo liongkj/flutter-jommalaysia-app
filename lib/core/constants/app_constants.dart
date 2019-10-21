@@ -4,8 +4,11 @@ class RoutePaths {
 
 //category
   static const String categoryGrid = 'categorygrid';
-  static const String subcategoryInfo = '';
+  static const String subcategoryGrid = 'subcategorygrid';
+
+  //map
   static const String nearby = 'nearby';
+  //account
   static const String account = 'account';
 }
 

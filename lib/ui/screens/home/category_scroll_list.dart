@@ -70,7 +70,7 @@ class CategoryScrollList extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(right: 10.0),
                   child: CategorySlideItem(
-                    img: category.image,
+                    img: category.image.thumbnailUrl,
                     title: category.categoryName,
                     subcategories: subcategories,
                   ),

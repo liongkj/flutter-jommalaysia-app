@@ -13,6 +13,9 @@ Listing _$ListingFromJson(Map<String, dynamic> json) {
     listingType: json['listingType'] == null
         ? null
         : ListingType.fromJson(json['listingType'] as Map<String, dynamic>),
+    category: json['category'] == null
+        ? null
+        : Category.fromJson(json['category'] as Map<String, dynamic>),
   );
 }
 
@@ -20,4 +23,5 @@ Map<String, dynamic> _$ListingToJson(Listing instance) => <String, dynamic>{
       'listingId': instance.listingId,
       'listingName': instance.listingName,
       'listingType': instance.listingType,
+      'category': instance.category,
     };

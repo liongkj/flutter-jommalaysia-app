@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jommalaysia/core/models/category.dart';
 import 'package:jommalaysia/ui/screens/home/category_grid.dart';
+import 'package:jommalaysia/ui/screens/home/subcategory_grid.dart';
 import '../core/constants/app_constants.dart';
 import 'screens/home/home.dart';
 
@@ -13,6 +15,15 @@ class Router {
         // var categories = settings.arguments as List<Category>;
         return MaterialPageRoute(
           builder: (_) => CategoryGrid(),
+        );
+      case RoutePaths.subcategoryGrid:
+        Map<String, dynamic> args = settings.arguments;
+
+        return MaterialPageRoute(
+          builder: (_) => SubcategoryGrid(
+            selected: args["selected"],
+            subcategoryList: args["subcategoryList"],
+          ),
         );
 
       default:

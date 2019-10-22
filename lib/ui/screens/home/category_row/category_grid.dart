@@ -85,23 +85,23 @@ class _CategoryGridState extends State<CategoryGrid> {
               primary: false,
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount: categories == null ? 0 : categories.length,
+              itemCount: categories.length,
               itemBuilder: (BuildContext context, int index) {
                 return CategoryCardItem(
-                    category: categories[index],
-                    subs: model.getSubcategory(categories[index]),
-                    comingSoon: model.isComingSoon(categories[index]),
-                    onTap: () {
-                      print("tap categoryitem");
-                      Navigator.pushNamed(
-                        context,
-                        RoutePaths.subcategoryGrid,
-                        arguments: {
-                          "selected": categories[index],
-                          "subcategoryList": model.subcategories
-                        },
-                      );
-                    });
+                  category: categories[index],
+                  items: model.getSubcategory(categories[index]),
+                  comingSoon: model.isComingSoon(categories[index]),
+                  onTap: () => {
+                    Navigator.pushNamed(
+                      context,
+                      RoutePaths.subcategoryGrid,
+                      arguments: {
+                        "selected": categories[index],
+                        "subcategoryList": model.subcategories
+                      },
+                    )
+                  },
+                );
               },
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,

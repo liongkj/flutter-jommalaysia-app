@@ -97,13 +97,15 @@ class _SubcategoryGridState extends State<SubcategoryGrid> {
                       listings: model.getListings(subcategoryList[index]),
                       comingSoon: model.isComingSoon(subcategoryList[index]),
                       onTap: () {
-                        print("tap subcategoryitem");
-                        Navigator.pushNamed(
-                          context,
-                          RoutePaths.categoryGrid,
-
-                          // arguments: model.categoryList,
-                        );
+                        print("tap subcategoryitem" +
+                            subcategoryList.length.toString());
+                        Navigator.pushNamed(context, RoutePaths.shopList,
+                            arguments: {
+                              "selected": subcategoryList[index],
+                              "shopList": model.listings
+                            }
+                            // arguments: model.categoryList,
+                            );
                       });
                 },
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

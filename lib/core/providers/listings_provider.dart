@@ -24,7 +24,7 @@ class ListingsProvider extends BaseProvider {
   }
 
   List<Listing> getListings(Category subcategory) {
-    return _listings.where((c) => c.category == subcategory);
+    return _listings.where((c) => c.category == subcategory).toList();
   }
 
   bool isComingSoon(subcategoryList) {

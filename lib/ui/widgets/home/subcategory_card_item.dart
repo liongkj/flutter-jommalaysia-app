@@ -17,6 +17,7 @@ class SubcategoryCardItem extends StatelessWidget {
   final Function onTap;
   @override
   Widget build(BuildContext context) {
+    print("subcategorycard built" + listings.length.toString());
     return Padding(
       padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
       child: Container(
@@ -38,16 +39,16 @@ class SubcategoryCardItem extends StatelessWidget {
                 Stack(
                   children: <Widget>[
                     Container(
-                      height: MediaQuery.of(context).size.height / 3.5,
+                      height: MediaQuery.of(context).size.height / 10,
                       width: MediaQuery.of(context).size.width,
                       child: ClipRRect(
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
                         ),
-                        child: Image.asset(
-                          "${subcategory.categoryNameMs}",
-                          fit: BoxFit.fill,
+                        child: Image.network(
+                          "${subcategory.image.thumbnailUrl}",
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),

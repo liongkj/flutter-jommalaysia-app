@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:jommalaysia/core/providers/categories_provider.dart';
+import 'package:jommalaysia/ui/screens/home/category_row/category_overview.dart';
 import 'package:jommalaysia/ui/screens/home/private_listing.dart';
 import 'package:jommalaysia/ui/screens/home/upcoming_event.dart';
 import 'package:jommalaysia/ui/widgets/my_appbar.dart';
-import 'package:provider/provider.dart';
 
-import 'category_scroll_list.dart';
 import 'gov_listing.dart';
 
 class Home extends StatefulWidget {
@@ -28,7 +26,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
         child: ListView(
           children: <Widget>[
             SizedBox(height: 20.0),
-            CategoryScrollList(),
+            CategoryOverview(),
             SizedBox(height: 10.0),
             PrivateListings(),
             SizedBox(height: 20.0),

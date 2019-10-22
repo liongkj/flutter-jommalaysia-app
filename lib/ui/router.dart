@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jommalaysia/core/models/category.dart';
-import 'package:jommalaysia/ui/screens/home/category_grid.dart';
-import 'package:jommalaysia/ui/screens/home/subcategory_grid.dart';
+import 'package:jommalaysia/ui/screens/home/category_row/category_grid.dart';
+import 'package:jommalaysia/ui/screens/home/category_row/shop_list.dart';
+import 'package:jommalaysia/ui/screens/home/category_row/subcategory_grid.dart';
 import '../core/constants/app_constants.dart';
 import 'screens/home/home.dart';
 
@@ -25,7 +26,14 @@ class Router {
             subcategoryList: args["subcategoryList"],
           ),
         );
-
+      case RoutePaths.shopList:
+        Map<String, dynamic> args = settings.arguments;
+        return MaterialPageRoute(
+          builder: (_) => ShopList(
+            selected: args["selected"],
+            shopList: args["listingList"],
+          ),
+        );
       default:
         return MaterialPageRoute(builder: (_) {
           return Scaffold(

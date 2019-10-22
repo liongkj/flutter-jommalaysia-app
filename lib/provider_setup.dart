@@ -14,23 +14,23 @@ List<SingleChildCloneableWidget> providers = [
 
 //These are classes/objects that do not depend on any other services to execute their logic
 List<SingleChildCloneableWidget> independentServices = [
-  Provider.value(
-    value: CategoryService(),
-  ),
-  Provider.value(
-    value: ListingService(),
-  )
+  // Provider.value(
+  //   value: CategoryService(),
+  // ),
+  // Provider.value(
+  //   value: ListingService(),
+  // )
 ];
 
 //These are classes/object that depend on previously registered services
 List<SingleChildCloneableWidget> dependentServices = [
-  ChangeNotifierProvider<CategoriesProvider>(
-    builder: (context) => CategoriesProvider(
+  ChangeNotifierProvider.value(
+    value: CategoriesProvider(
       categoryService: CategoryService(),
     ),
   ),
-  ChangeNotifierProvider<ListingsProvider>(
-    builder: (context) => ListingsProvider(
+  ChangeNotifierProvider.value(
+    value: ListingsProvider(
       listingService: ListingService(),
     ),
   ),

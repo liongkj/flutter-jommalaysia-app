@@ -19,8 +19,7 @@ class CategoriesProvider extends BaseProvider {
     return getSubcategory(cat).isEmpty;
   }
 
-  Future<bool> prepareData() async {
-    setState(ViewState.busy);
+  Future<void> prepareData() async {
     await fetchCategories();
     _categoryList.forEach(
       (c) {
@@ -31,13 +30,14 @@ class CategoriesProvider extends BaseProvider {
         }
       },
     );
-    setState(ViewState.idle);
-    return true;
   }
 
   Future<void> fetchCategories() async {
     _categoryList =
         await _categoryService.fetchCategories<List<Category>, Category>();
+    _categories.clear();
+    _subcategories.clear();
+    notifyListeners();
   }
 
   List<Category> getSubcategory(Category cat) {

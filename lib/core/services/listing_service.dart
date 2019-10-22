@@ -6,7 +6,7 @@ import 'package:jommalaysia/core/models/category.dart';
 import 'api_response_decoder.dart';
 
 class ListingService {
-  static const String endpoint = API.endpoint + '/listings';
+  static const String endpoint = API.endpoint + 'listings/';
   String queryCategory = '?category=';
 
   var _client = http.Client();

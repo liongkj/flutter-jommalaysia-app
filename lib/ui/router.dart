@@ -19,7 +19,6 @@ class Router {
         );
       case RoutePaths.subcategoryGrid:
         Map<String, dynamic> args = settings.arguments;
-
         return MaterialPageRoute(
           builder: (_) => SubcategoryGrid(
             selected: args["selected"],

@@ -3,6 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 import 'address.dart';
 import 'category.dart';
+import 'category_path.dart';
 import 'merchant.dart';
 part 'listing.g.dart';
 
@@ -35,7 +36,7 @@ class Listing {
   // Address address;
   // String status;
   ListingType listingType;
-  Category category;
+  CategoryPath category;
   // String createdAt;
   // String modifiedAt;
 

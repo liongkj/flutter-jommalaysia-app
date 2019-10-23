@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jommalaysia/core/constants/app_constants.dart';
 import 'package:jommalaysia/core/providers/categories_provider.dart';
+import 'package:jommalaysia/core/providers/listings_provider.dart';
 import 'package:jommalaysia/ui/widgets/home/category_card_item.dart';
 import 'package:provider/provider.dart';
 
@@ -16,8 +17,6 @@ class _CategoryGridState extends State<CategoryGrid> {
 
   @override
   Widget build(BuildContext context) {
-    final model = Provider.of<CategoriesProvider>(context);
-    final categories = model.categories;
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
@@ -81,30 +80,45 @@ class _CategoryGridState extends State<CategoryGrid> {
               ),
             ),
             SizedBox(height: 10.0),
-            GridView.builder(
-              primary: false,
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: categories.length,
-              itemBuilder: (BuildContext context, int index) {
-                return CategoryCardItem(
-                  category: categories[index],
-                  items: model.getSubcategory(categories[index]),
-                  comingSoon: model.isComingSoon(categories[index]),
-                  onTap: () => {
-                    Navigator.pushNamed(
-                      context,
-                      RoutePaths.subcategoryGrid,
-                      arguments: {
-                        "selected": categories[index],
-                        "subcategoryList": model.subcategories
-                      },
-                    )
-                  },
-                );
-              },
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+            FutureBuilder(
+              future: Provider.of<ListingsProvider>(
+                context,
+                listen: false,
+              ).fetchListings(),
+              builder: (context, dataSnapshot) => Consumer<ListingsProvider>(
+                builder: (context, listing, child) =>
+                    Consumer<CategoriesProvider>(
+                  builder: (context, model, child) => GridView.builder(
+                    primary: false,
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: model.categories.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return CategoryCardItem(
+                        category: model.categories[index],
+                        shopCount: listing
+                            .getCategoryListings(model.categories[index])
+                            .length,
+                        items: model.getSubcategory(model.categories[index]),
+                        comingSoon: model.isComingSoon(model.categories[index]),
+                        onTap: () => {
+                          print("tap on category card"),
+                          Navigator.pushNamed(
+                            context,
+                            RoutePaths.subcategoryGrid,
+                            arguments: {
+                              "selected": model.categories[index],
+                              "subcategoryList": model.subcategories
+                            },
+                          )
+                        },
+                      );
+                    },
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                    ),
+                  ),
+                ),
               ),
             ),
             SizedBox(height: 10.0),

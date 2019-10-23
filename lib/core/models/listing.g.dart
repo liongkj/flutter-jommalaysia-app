@@ -15,7 +15,7 @@ Listing _$ListingFromJson(Map<String, dynamic> json) {
         : ListingType.fromJson(json['listingType'] as Map<String, dynamic>),
     category: json['category'] == null
         ? null
-        : Category.fromJson(json['category'] as Map<String, dynamic>),
+        : CategoryPath.fromJson(json['category'] as Map<String, dynamic>),
   );
 }
 

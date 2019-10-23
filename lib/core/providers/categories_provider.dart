@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import '../enums/viewstate.dart';
 import '../models/category.dart';
-import '../providers/base_provider.dart';
 import '../services/category_service.dart';
 
-class CategoriesProvider extends BaseProvider {
+class CategoriesProvider extends ChangeNotifier {
   CategoriesProvider({@required CategoryService categoryService})
       : _categoryService = categoryService;
 
@@ -37,7 +35,6 @@ class CategoriesProvider extends BaseProvider {
         await _categoryService.fetchCategories<List<Category>, Category>();
     _categories.clear();
     _subcategories.clear();
-    notifyListeners();
   }
 
   List<Category> getSubcategory(Category cat) {

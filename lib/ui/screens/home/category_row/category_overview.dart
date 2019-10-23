@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jommalaysia/core/constants/app_constants.dart';
-import 'package:jommalaysia/core/enums/viewstate.dart';
 import 'package:jommalaysia/core/models/category.dart';
 import 'package:jommalaysia/core/providers/categories_provider.dart';
-import 'package:jommalaysia/ui/widgets/base_change_notifier.dart';
 import 'package:jommalaysia/ui/widgets/home/category_slide_item.dart';
 import 'package:provider/provider.dart';
 

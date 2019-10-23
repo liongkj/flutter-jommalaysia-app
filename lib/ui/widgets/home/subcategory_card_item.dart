@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jommalaysia/core/models/category.dart';
 import 'package:jommalaysia/core/models/listing.dart';
+import 'package:jommalaysia/core/providers/listings_provider.dart';
+import 'package:provider/provider.dart';
 
 class SubcategoryCardItem extends StatelessWidget {
   SubcategoryCardItem(
@@ -8,7 +10,7 @@ class SubcategoryCardItem extends StatelessWidget {
       @required this.subcategory,
       @required this.listings,
       @required this.onTap,
-      this.comingSoon})
+      @required this.comingSoon})
       : super(key: key);
 
   final Category subcategory;
@@ -17,7 +19,6 @@ class SubcategoryCardItem extends StatelessWidget {
   final Function onTap;
   @override
   Widget build(BuildContext context) {
-    print("subcategorycard built" + listings.length.toString());
     return Padding(
       padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
       child: Container(
@@ -31,9 +32,7 @@ class SubcategoryCardItem extends StatelessWidget {
           ),
           elevation: 3.0,
           child: InkWell(
-            onTap: () {
-              onTap;
-            },
+            onTap: onTap,
             child: Column(
               children: <Widget>[
                 Stack(
@@ -81,14 +80,20 @@ class SubcategoryCardItem extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   )
-                                : Text(
-                                    listings.length > 1
-                                        ? "${listings.length} Shops available"
-                                        : "${listings.length} Shop available",
-                                    style: TextStyle(
-                                      fontSize: 10,
-                                      color: Colors.green,
-                                      fontWeight: FontWeight.bold,
+                                : Consumer<ListingsProvider>(
+                                    builder: (context, model, child) => Text(
+                                      model
+                                                  .getSubcategoryListings(
+                                                      subcategory)
+                                                  .length >
+                                              1
+                                          ? "${model.getSubcategoryListings(subcategory).length} Shops available"
+                                          : "${model.getSubcategoryListings(subcategory).length} Shop available",
+                                      style: TextStyle(
+                                        fontSize: 10,
+                                        color: Colors.green,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                           ),

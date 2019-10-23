@@ -16,6 +16,7 @@ class _MainScreenState extends State<MainScreen> {
   int _page = 0;
   @override
   Widget build(BuildContext context) {
+    print("build main screen");
     return Scaffold(
       body: PageView(
         physics: NeverScrollableScrollPhysics(),

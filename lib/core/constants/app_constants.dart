@@ -7,6 +7,8 @@ class RoutePaths {
   static const String subcategoryGrid = 'subcategorygrid';
   static const String shopList = 'shoplist';
 
+//listing
+  static const String listingDetail = 'listingdetail';
   //map
   static const String nearby = 'nearby';
   //account

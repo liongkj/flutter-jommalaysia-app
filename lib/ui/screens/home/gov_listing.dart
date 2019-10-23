@@ -9,7 +9,7 @@ class GovListings extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text(
-            "Government Owned",
+            "Government",
             style: TextStyle(
               fontSize: 23,
               fontWeight: FontWeight.w800,

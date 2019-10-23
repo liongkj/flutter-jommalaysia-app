@@ -13,33 +13,33 @@ class CategoriesProvider extends ChangeNotifier {
   List<Category> get categories => [..._categories];
   List<Category> get subcategories => [..._subcategories];
 
-  bool isComingSoon(Category cat) {
-    return getSubcategory(cat).isEmpty;
-  }
-
   Future<void> prepareData() async {
-    await fetchCategories();
+    _categoryList =
+        await _categoryService.fetchCategories<List<Category>, Category>();
+    List<Category> cat = [];
+    List<Category> sub = [];
     _categoryList.forEach(
       (c) {
         if (c.categoryPath.subcategory == null) {
-          _categories.add(c);
+          cat.add(c);
         } else {
-          _subcategories.add(c);
+          sub.add(c);
         }
       },
     );
-  }
-
-  Future<void> fetchCategories() async {
-    _categoryList =
-        await _categoryService.fetchCategories<List<Category>, Category>();
-    _categories.clear();
-    _subcategories.clear();
+    _categories = cat;
+    _subcategories = sub;
+    notifyListeners();
   }
 
   List<Category> getSubcategory(Category cat) {
-    return _subcategories
+    var sub = _subcategories
         .where((c) => c.categoryPath.category == cat.categoryPath.category)
         .toList();
+    return sub;
+  }
+
+  bool isComingSoon(Category cat) {
+    return getSubcategory(cat).isEmpty;
   }
 }

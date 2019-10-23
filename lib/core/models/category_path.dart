@@ -13,4 +13,9 @@ class CategoryPath {
   final String subcategory;
 
   Map<String, dynamic> toJson() => _$CategoryPathToJson(this);
+
+  bool Equals(CategoryPath categoryPath) {
+    return category.toLowerCase() == categoryPath.category &&
+        subcategory.toLowerCase() == categoryPath.subcategory;
+  }
 }

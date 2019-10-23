@@ -7,14 +7,14 @@ class CategoryCardItem extends StatelessWidget {
       @required this.category,
       @required this.shopCount,
       @required this.items,
-      // @required this.onTap,
+      @required this.onTap,
       @required this.comingSoon})
       : super(key: key);
 
   final Category category;
   final List<Category> items;
   final bool comingSoon;
-  // final Function onTap;
+  final Function onTap;
   final int shopCount;
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class CategoryCardItem extends StatelessWidget {
           ),
           elevation: 3.0,
           child: InkWell(
-            // onTap: onTap,
+            onTap: onTap,
             child: Column(
               children: <Widget>[
                 Stack(
@@ -109,8 +109,7 @@ class CategoryCardItem extends StatelessWidget {
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     child: Text(
-                      // "${category.categoryName}",
-                      "CategoryName",
+                      "${category.categoryName}",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w800,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jommalaysia/core/providers/categories_provider.dart';
 import 'package:jommalaysia/ui/screens/home/category_row/category_overview.dart';
-import 'package:jommalaysia/ui/screens/home/private_listing.dart';
 import 'package:jommalaysia/ui/screens/home/upcoming_event.dart';
 import 'package:jommalaysia/ui/widgets/my_appbar.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +16,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
   final TextEditingController _searchControl = TextEditingController();
 
   Future<void> _refreshPage(BuildContext context) async {
-    await Provider.of<CategoriesProvider>(context).prepareData();
+    await Provider.of<CategoriesProvider>(context, listen: false).prepareData();
   }
 
   @override
@@ -35,8 +34,6 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
               SizedBox(height: 20.0),
               CategoryOverview(),
               SizedBox(height: 10.0),
-              PrivateListings(),
-              SizedBox(height: 20.0),
               GovListings(),
               SizedBox(height: 30.0),
               UpcomingEvents(),

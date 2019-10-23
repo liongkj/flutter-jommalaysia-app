@@ -12,6 +12,7 @@ class ListingService {
 
   // Future<List<Listing>> fetchListings() async {
   Future<T> fetchListings<T, K>() async {
+    print("calling listing api");
     // Get comments for post
     String request = endpoint;
     final jsonReponse = await _client.get('$request');

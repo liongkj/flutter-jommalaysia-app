@@ -11,7 +11,7 @@ class CategoryService {
 
   Future<T> fetchCategories<T, K>() async {
     final jsonReponse = await _client.get('$endpoint');
-
+    print("calling category api");
     // Parse into List
     if (jsonReponse.statusCode == 200) {
       final jsonBody = json.decode(jsonReponse.body);

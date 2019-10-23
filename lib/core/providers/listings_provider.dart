@@ -9,27 +9,30 @@ class ListingsProvider extends ChangeNotifier {
 
   ListingService _listingService;
 
-  List<Listing> _listings;
+  List<Listing> _listings = [];
 
   List<Listing> get listings => [..._listings];
 
   Future<void> fetchListings() async {
     _listings = await _listingService.fetchListings<List<Listing>, Listing>();
+    notifyListeners();
   }
 
   List<Listing> getCategoryListings(Category category) {
-    return _listings
+    var shops = _listings
         .where((c) => c.category.category == category.categoryPath.category)
         .toList();
+    return shops;
   }
 
   List<Listing> getSubcategoryListings(Category subcategory) {
-    return _listings
-        .where((c) => c.category == subcategory.categoryPath)
+    var shops = _listings
+        .where((c) => c.category.Equals(subcategory.categoryPath))
         .toList();
+    return shops;
   }
 
-  bool isComingSoon(subcategoryList) {
-    return _listings.isEmpty;
+  bool isComingSoon(Category subcategory) {
+    return getSubcategoryListings(subcategory).isEmpty;
   }
 }

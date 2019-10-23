@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:jommalaysia/core/constants/app_constants.dart';
 import 'package:jommalaysia/core/models/category.dart';
 import 'package:jommalaysia/core/providers/categories_provider.dart';
@@ -20,6 +21,7 @@ class _SubcategoryGridState extends State<SubcategoryGrid> {
 
   @override
   Widget build(BuildContext context) {
+    print("build subcategory grid");
     final subcategoryList = widget.subcategoryList;
     return Scaffold(
       appBar: AppBar(
@@ -92,21 +94,23 @@ class _SubcategoryGridState extends State<SubcategoryGrid> {
                 itemCount: subcategoryList == null ? 0 : subcategoryList.length,
                 itemBuilder: (BuildContext context, int index) {
                   return SubcategoryCardItem(
-                      subcategory: subcategoryList[index],
-                      listings:
-                          model.getSubcategoryListings(subcategoryList[index]),
-                      comingSoon: model.isComingSoon(subcategoryList[index]),
-                      onTap: () {
-                        print("tap subcategoryitem" +
-                            subcategoryList.length.toString());
-                        Navigator.pushNamed(context, RoutePaths.shopList,
-                            arguments: {
-                              "selected": subcategoryList[index],
-                              "shopList": model.listings
-                            }
-                            // arguments: model.categoryList,
-                            );
-                      });
+                    subcategory: subcategoryList[index],
+                    listings:
+                        model.getSubcategoryListings(subcategoryList[index]),
+                    comingSoon: model.isComingSoon(subcategoryList[index]),
+                    onTap: () {
+                      model.isComingSoon(subcategoryList[index])
+                          ? Fluttertoast.showToast(
+                              msg: ("More shops coming!"),
+                            )
+                          : Navigator.pushNamed(context, RoutePaths.shopList,
+                              arguments: {
+                                  "selected": subcategoryList[index],
+                                }
+                              // arguments: model.categoryList,
+                              );
+                    },
+                  );
                 },
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,

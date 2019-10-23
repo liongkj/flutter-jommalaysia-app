@@ -30,7 +30,6 @@ class Router {
         return MaterialPageRoute(
           builder: (_) => ShopList(
             selected: args["selected"],
-            shopList: args["listingList"],
           ),
         );
       default:

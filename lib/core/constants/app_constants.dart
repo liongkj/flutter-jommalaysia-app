@@ -22,4 +22,6 @@ class Constants {
 class API {
   static const String endpoint =
       'https://jommalaysiaapi.azurewebsites.net/api/';
+
+  static const String withQuery = '/query?';
 }

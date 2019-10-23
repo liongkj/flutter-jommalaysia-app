@@ -15,8 +15,26 @@ class ShopList extends StatefulWidget {
   _ShopListState createState() => _ShopListState();
 }
 
-class _ShopListState extends State<ShopList> {
+class _ShopListState extends State<ShopList> with TickerProviderStateMixin {
   final TextEditingController _searchControl = TextEditingController();
+  AnimationController animationController;
+  @override
+  void initState() {
+    animationController = AnimationController(
+        duration: Duration(milliseconds: 1000), vsync: this);
+    super.initState();
+  }
+
+  Future<bool> getData() async {
+    await Future.delayed(const Duration(milliseconds: 200));
+    return true;
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,33 +57,45 @@ class _ShopListState extends State<ShopList> {
               searchControl: _searchControl,
             ),
             SizedBox(height: 10.0),
-            Consumer<ListingsProvider>(
-              builder: (_, model, child) => ListView.builder(
-                primary: false,
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: model.getSubcategoryListings(widget.selected) == null
-                    ? 0
-                    : model.getSubcategoryListings(widget.selected).length,
-                itemBuilder: (BuildContext context, int index) {
-                  return ShopListItem(
-                    shop: model.getSubcategoryListings(widget.selected)[index],
-                    comingSoon: model.isComingSoon(widget.selected),
-                    // subcategory: shopList[index],
-                    // listings: model.getListings(shopList[index]),
 
-                    onTap: () {
-                      Navigator.pushNamed(
-                        context,
-                        RoutePaths.listingDetail,
-                        arguments: model
-                            .getSubcategoryListings(widget.selected)[index],
-                      );
-                    },
-                  );
-                },
+            ShopListItem(
+              shop: Provider.of<ListingsProvider>(context)
+                  .getSubcategoryListings(widget.selected)[0],
+              animationController: animationController,
+              animation: Tween(begin: 0.0, end: 1.0).animate(
+                CurvedAnimation(
+                  parent: animationController,
+                  curve:
+                      Interval((1 / 1) * 1, 1.0, curve: Curves.fastOutSlowIn),
+                ),
               ),
             ),
+            // Consumer<ListingsProvider>(
+            //   builder: (_, model, child) => ListView.builder(
+            //     itemCount: model.getSubcategoryListings(widget.selected).length,
+            //     padding: EdgeInsets.only(top: 8),
+            //     scrollDirection: Axis.vertical,
+            //     itemBuilder: (context, index) {
+            //       var count =
+            //           model.getSubcategoryListings(widget.selected).length > 10
+            //               ? 10
+            //               : model
+            //                   .getSubcategoryListings(widget.selected)
+            //                   .length;
+            //       var animation = Tween(begin: 0.0, end: 1.0).animate(
+            //           CurvedAnimation(
+            //               parent: animationController,
+            //               curve: Interval((1 / count) * index, 1.0,
+            //                   curve: Curves.fastOutSlowIn)));
+            //       animationController.forward();
+            //       return ShopListItem(
+            //         shop: model.getSubcategoryListings(widget.selected)[index],
+            //         animation: animation,
+            //         animationController: animationController,
+            //       );
+            //     },
+            //   ),
+            // ),
             SizedBox(height: 10.0),
           ],
         ),

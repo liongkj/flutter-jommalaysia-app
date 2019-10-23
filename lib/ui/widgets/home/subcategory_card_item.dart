@@ -46,7 +46,7 @@ class SubcategoryCardItem extends StatelessWidget {
                           topRight: Radius.circular(10),
                         ),
                         child: Image.network(
-                          "${subcategory.image.thumbnailUrl}",
+                          "${subcategory.categoryThumbnail.thumbnailUrl}",
                           fit: BoxFit.cover,
                         ),
                       ),

@@ -6,7 +6,7 @@ import 'api_response_decoder.dart';
 
 class ListingService {
   static const String endpoint = API.endpoint + 'listings/';
-  String queryCategory = '?category=';
+  String queryPublished = '?status=published';
 
   var _client = http.Client();
 
@@ -14,7 +14,7 @@ class ListingService {
   Future<T> fetchListings<T, K>() async {
     print("calling listing api");
     // Get comments for post
-    String request = endpoint;
+    String request = endpoint + API.withQuery + queryPublished;
     final jsonReponse = await _client.get('$request');
 
     // Parse into List

@@ -13,7 +13,7 @@ class Category {
     this.categoryNameMs,
     this.categoryNameZh,
     this.categoryPath,
-    this.image,
+    this.categoryThumbnail,
   });
 
   factory Category.fromJson(Map<String, dynamic> json) =>
@@ -24,7 +24,7 @@ class Category {
   final String categoryNameMs;
   final String categoryNameZh;
   final CategoryPath categoryPath;
-  final Image image;
+  final Image categoryThumbnail;
 
   Map<String, dynamic> toJson() => _$CategoryToJson(this);
 }

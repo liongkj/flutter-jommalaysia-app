@@ -3,6 +3,7 @@ import 'package:jommalaysia/core/constants/app_constants.dart';
 import 'package:jommalaysia/core/providers/categories_provider.dart';
 import 'package:jommalaysia/core/providers/listings_provider.dart';
 import 'package:jommalaysia/ui/widgets/home/category_card_item.dart';
+import 'package:jommalaysia/ui/widgets/home/search_bar.dart';
 import 'package:provider/provider.dart';
 
 class CategoryGrid extends StatefulWidget {
@@ -40,52 +41,8 @@ class _CategoryGridState extends State<CategoryGrid> {
         padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
         child: ListView(
           children: <Widget>[
-            Card(
-              elevation: 6.0,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(5.0),
-                  ),
-                ),
-                child: TextField(
-                  style: TextStyle(
-                    fontSize: 15.0,
-                    color: Colors.black,
-                  ),
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(10.0),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                      borderSide: BorderSide(
-                        color: Colors.white,
-                      ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.white,
-                      ),
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                    hintText: "Search..",
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: Colors.black,
-                    ),
-                    suffixIcon: Icon(
-                      Icons.filter_list,
-                      color: Colors.black,
-                    ),
-                    hintStyle: TextStyle(
-                      fontSize: 15.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  maxLines: 1,
-                  controller: _searchControl,
-                ),
-              ),
+            SearchBar(
+              searchControl: _searchControl,
             ),
             SizedBox(height: 10.0),
             FutureBuilder(

@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:jommalaysia/core/models/category.dart';
-import 'package:jommalaysia/core/providers/listings_provider.dart';
-import 'package:provider/provider.dart';
-
-import '../base_change_notifier.dart';
 
 class CategoryCardItem extends StatelessWidget {
   CategoryCardItem(
@@ -11,17 +7,19 @@ class CategoryCardItem extends StatelessWidget {
       @required this.category,
       @required this.shopCount,
       @required this.items,
-      @required this.onTap,
-      this.comingSoon})
+      // @required this.onTap,
+      @required this.comingSoon})
       : super(key: key);
 
   final Category category;
   final List<Category> items;
   final bool comingSoon;
-  final Function onTap;
+  // final Function onTap;
   final int shopCount;
   @override
   Widget build(BuildContext context) {
+    print("build category card " + category.categoryName);
+
     return Padding(
       padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
       child: Container(
@@ -35,7 +33,7 @@ class CategoryCardItem extends StatelessWidget {
           ),
           elevation: 3.0,
           child: InkWell(
-            onTap: onTap,
+            // onTap: onTap,
             child: Column(
               children: <Widget>[
                 Stack(
@@ -80,26 +78,25 @@ class CategoryCardItem extends StatelessWidget {
                         child: Container(
                           child: Padding(
                             padding: EdgeInsets.all(4.0),
-                            child: Consumer<ListingsProvider>(
-                                builder: (context, model, child) => comingSoon
-                                    ? Text(
-                                        "MORE SHOPS COMING SOON",
-                                        style: TextStyle(
-                                          fontSize: 10,
-                                          color: Colors.red,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      )
-                                    : Text(
-                                        shopCount > 1
-                                            ? "$shopCount shops available"
-                                            : "$shopCount shop available",
-                                        style: TextStyle(
-                                          fontSize: 10,
-                                          color: Colors.green,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      )),
+                            child: comingSoon
+                                ? Text(
+                                    "MORE SHOPS COMING SOON",
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                : Text(
+                                    shopCount > 1
+                                        ? "$shopCount shops available"
+                                        : "$shopCount shop available",
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      color: Colors.green,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
                           ),
                         ),
                       ),
@@ -112,7 +109,8 @@ class CategoryCardItem extends StatelessWidget {
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     child: Text(
-                      "${category.categoryName}",
+                      // "${category.categoryName}",
+                      "CategoryName",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w800,
@@ -121,26 +119,12 @@ class CategoryCardItem extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 7.0),
-                //Subcategory Count
-                // Padding(
-                //   padding: EdgeInsets.only(left: 15.0),
-                //   child: Container(
-                //     width: MediaQuery.of(context).size.width,
-                //     child: Text(
-                //       "2",
-                //       style: TextStyle(
-                //         fontSize: 12,
-                //         fontWeight: FontWeight.w300,
-                //       ),
-                //     ),
-                //   ),
-                // ),
                 SizedBox(height: 10.0),
               ],
             ),
           ),
         ),
+        // ),
       ),
     );
   }

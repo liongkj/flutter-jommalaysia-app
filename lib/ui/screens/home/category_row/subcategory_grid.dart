@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:jommalaysia/core/constants/app_constants.dart';
 import 'package:jommalaysia/core/models/category.dart';
-import 'package:jommalaysia/core/providers/categories_provider.dart';
 import 'package:jommalaysia/core/providers/listings_provider.dart';
-import 'package:jommalaysia/ui/widgets/base_change_notifier.dart';
 import 'package:jommalaysia/ui/widgets/home/search_bar.dart';
 import 'package:jommalaysia/ui/widgets/home/subcategory_card_item.dart';
 import 'package:provider/provider.dart';
@@ -60,7 +58,8 @@ class _SubcategoryGridState extends State<SubcategoryGrid> {
                           ? Fluttertoast.showToast(
                               msg: ("More shops coming!"),
                             )
-                          : Navigator.pushNamed(context, RoutePaths.shopList,
+                          : Navigator.pushNamed(
+                              context, RoutePaths.listingListView,
                               arguments: {
                                   "selected": subcategoryList[index],
                                 }

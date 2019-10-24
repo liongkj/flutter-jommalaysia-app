@@ -7,15 +7,16 @@ import 'package:jommalaysia/ui/widgets/home/search_bar.dart';
 import 'package:jommalaysia/ui/widgets/home/shop_list_item.dart';
 import 'package:provider/provider.dart';
 
-class ShopList extends StatefulWidget {
-  ShopList({@required this.selected});
+class ListingList extends StatefulWidget {
+  ListingList({@required this.selected});
 
   final Category selected;
   @override
-  _ShopListState createState() => _ShopListState();
+  _ListingListState createState() => _ListingListState();
 }
 
-class _ShopListState extends State<ShopList> with TickerProviderStateMixin {
+class _ListingListState extends State<ListingList>
+    with TickerProviderStateMixin {
   final TextEditingController _searchControl = TextEditingController();
   AnimationController animationController;
   @override
@@ -23,11 +24,6 @@ class _ShopListState extends State<ShopList> with TickerProviderStateMixin {
     animationController = AnimationController(
         duration: Duration(milliseconds: 1000), vsync: this);
     super.initState();
-  }
-
-  Future<bool> getData() async {
-    await Future.delayed(const Duration(milliseconds: 200));
-    return true;
   }
 
   @override
@@ -57,45 +53,45 @@ class _ShopListState extends State<ShopList> with TickerProviderStateMixin {
               searchControl: _searchControl,
             ),
             SizedBox(height: 10.0),
-
-            ShopListItem(
-              shop: Provider.of<ListingsProvider>(context)
-                  .getSubcategoryListings(widget.selected)[0],
-              animationController: animationController,
-              animation: Tween(begin: 0.0, end: 1.0).animate(
-                CurvedAnimation(
-                  parent: animationController,
-                  curve:
-                      Interval((1 / 1) * 1, 1.0, curve: Curves.fastOutSlowIn),
-                ),
+            Consumer<ListingsProvider>(
+              builder: (_, model, child) => ListView.builder(
+                primary: true,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: model.getSubcategoryListings(widget.selected).length,
+                padding: EdgeInsets.only(top: 8),
+                scrollDirection: Axis.vertical,
+                itemBuilder: (context, index) {
+                  var count =
+                      model.getSubcategoryListings(widget.selected).length > 10
+                          ? 10
+                          : model
+                              .getSubcategoryListings(widget.selected)
+                              .length;
+                  var animation = Tween(begin: 0.0, end: 1.0).animate(
+                      CurvedAnimation(
+                          parent: animationController,
+                          curve: Interval((1 / count) * index, 1.0,
+                              curve: Curves.fastOutSlowIn)));
+                  animationController.forward();
+                  return ShopListItem(
+                    shop: model.getSubcategoryListings(widget.selected)[index],
+                    animationController: animationController,
+                    animation: animation,
+                    onTap: () => {
+                      Navigator.pushNamed(
+                        context,
+                        RoutePaths.listingDetail,
+                        arguments: {
+                          "selected": model
+                              .getSubcategoryListings(widget.selected)[index],
+                        },
+                      )
+                    },
+                  );
+                },
               ),
             ),
-            // Consumer<ListingsProvider>(
-            //   builder: (_, model, child) => ListView.builder(
-            //     itemCount: model.getSubcategoryListings(widget.selected).length,
-            //     padding: EdgeInsets.only(top: 8),
-            //     scrollDirection: Axis.vertical,
-            //     itemBuilder: (context, index) {
-            //       var count =
-            //           model.getSubcategoryListings(widget.selected).length > 10
-            //               ? 10
-            //               : model
-            //                   .getSubcategoryListings(widget.selected)
-            //                   .length;
-            //       var animation = Tween(begin: 0.0, end: 1.0).animate(
-            //           CurvedAnimation(
-            //               parent: animationController,
-            //               curve: Interval((1 / count) * index, 1.0,
-            //                   curve: Curves.fastOutSlowIn)));
-            //       animationController.forward();
-            //       return ShopListItem(
-            //         shop: model.getSubcategoryListings(widget.selected)[index],
-            //         animation: animation,
-            //         animationController: animationController,
-            //       );
-            //     },
-            //   ),
-            // ),
             SizedBox(height: 10.0),
           ],
         ),

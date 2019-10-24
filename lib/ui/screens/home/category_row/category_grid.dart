@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:jommalaysia/core/constants/app_constants.dart';
 import 'package:jommalaysia/core/providers/categories_provider.dart';
 import 'package:jommalaysia/core/providers/listings_provider.dart';
@@ -73,14 +74,18 @@ class _CategoryGridState extends State<CategoryGrid> {
                         items: model.getSubcategory(model.categories[index]),
                         comingSoon: model.isComingSoon(model.categories[index]),
                         onTap: () => {
-                          Navigator.pushNamed(
-                            context,
-                            RoutePaths.subcategoryGrid,
-                            arguments: {
-                              "selected": model.categories[index],
-                              "subcategoryList": model.subcategories
-                            },
-                          )
+                          model.isComingSoon(model.categories[index])
+                              ? Fluttertoast.showToast(
+                                  msg: ("More shops coming!"),
+                                )
+                              : Navigator.pushNamed(
+                                  context,
+                                  RoutePaths.subcategoryGrid,
+                                  arguments: {
+                                    "selected": model.categories[index],
+                                    "subcategoryList": model.subcategories
+                                  },
+                                )
                         },
                       );
                     },

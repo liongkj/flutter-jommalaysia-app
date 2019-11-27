@@ -1,4 +1,6 @@
 # jommalaysia
+API https://jommalaysiaapi.azurewebsites.net/
+Get bearer token here: https://portal-jommalaysia.azurewebsites.net/
 
 Jom Malaysia Android and IOS App
 

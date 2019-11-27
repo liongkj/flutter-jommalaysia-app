@@ -36,8 +36,7 @@ class CategorySlideItem extends StatelessWidget {
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
                         ),
-                        child: Image.network(
-                            "http://res.cloudinary.com/jomn9-com/image/upload/v1571632864/category_thumbnail/vyto6ztr27zpnh8i4fkb.jpg?fbclid=IwAR2CNYzAMd3n3IeI_hqcTevQREk-DpA5YhhHHI0adxEtdXaHiClEGZ9GZN8")
+                        child: Image.network(img)
                         // Icon(Icons.restaurant),
                         ),
                   ),

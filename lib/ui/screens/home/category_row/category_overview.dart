@@ -78,7 +78,7 @@ class _CategoryOverviewState extends State<CategoryOverview> {
                             return Padding(
                               padding: const EdgeInsets.only(right: 10.0),
                               child: CategorySlideItem(
-                                img: category.categoryThumbnail.thumbnailUrl,
+                                img: category.categoryThumbnail.url,
                                 title: category.categoryName,
                                 subcategories: subcategories,
                               ),

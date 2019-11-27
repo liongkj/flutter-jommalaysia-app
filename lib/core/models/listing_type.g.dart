@@ -52,7 +52,8 @@ T _$enumDecodeNullable<T>(
 }
 
 const _$ListingTypeEnumEnumMap = {
-  ListingTypeEnum.government: 'government',
-  ListingTypeEnum.private: 'private',
+  ListingTypeEnum.government: 'gover',
+  ListingTypeEnum.local: 'local',
   ListingTypeEnum.event: 'event',
+  ListingTypeEnum.civic: 'civic',
 };

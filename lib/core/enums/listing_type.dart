@@ -1,1 +1,1 @@
-enum ListingTypeEnum { government, private, event }
+enum ListingTypeEnum { local, civic, event, government }

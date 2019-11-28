@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../models/category.dart';
 import '../services/category_service.dart';
 
@@ -15,7 +16,7 @@ class CategoriesProvider extends ChangeNotifier {
 
   Future<void> prepareData() async {
     _categoryList =
-        await _categoryService.fetchCategories<List<Category>, Category>();
+    await _categoryService.fetchCategories<List<Category>, Category>();
     List<Category> cat = [];
     List<Category> sub = [];
     _categoryList.forEach(

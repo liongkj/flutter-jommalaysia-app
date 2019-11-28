@@ -56,27 +56,30 @@ class _MapState extends State<GoogleMaps> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        // Container(
-        //   child: GoogleMap(
-        //     padding: EdgeInsets.only(
-        //       bottom: MediaQuery.of(context).size.height * 0.4,
-        //     ),
-        //     onMapCreated: _onMapCreated,
-        //     mapType: MapType.normal,
-        //     myLocationButtonEnabled: true,
-        //     initialCameraPosition: CameraPosition(
-        //       target: LatLng(
-        //         widget.initialCoord.latitude,
-        //         widget.initialCoord.longitude,
-        //       ),
-        //       zoom: 12.0,
-        //     ),
-        //     zoomGesturesEnabled: true,
-        //     tiltGesturesEnabled: false,
-        //     trafficEnabled: false,
-        //     markers: Set.from(widget.nearbyListing),
-        //   ),
-        // ),
+        Container(
+          child: GoogleMap(
+            padding: EdgeInsets.only(
+              bottom: MediaQuery
+                  .of(context)
+                  .size
+                  .height * 0.4,
+            ),
+            onMapCreated: _onMapCreated,
+            mapType: MapType.normal,
+            myLocationButtonEnabled: true,
+            initialCameraPosition: CameraPosition(
+              target: LatLng(
+                widget.initialCoord.latitude,
+                widget.initialCoord.longitude,
+              ),
+              zoom: 12.0,
+            ),
+            zoomGesturesEnabled: true,
+            tiltGesturesEnabled: false,
+            trafficEnabled: false,
+            markers: Set.from(widget.nearbyListing),
+          ),
+        ),
         Container(
           child: ListingList(
             pageController: widget.pageController,

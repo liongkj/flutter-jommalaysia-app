@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:jommalaysia/core/constants/app_constants.dart';
+
 import 'api_response_decoder.dart';
 
 class ListingService {
@@ -12,7 +13,6 @@ class ListingService {
 
   // Future<List<Listing>> fetchListings() async {
   Future<T> fetchListings<T, K>() async {
-    print("calling listing api");
     // Get comments for post
     String request = endpoint + API.withQuery + queryPublished;
     final jsonReponse = await _client.get('$request');

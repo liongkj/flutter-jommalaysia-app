@@ -4,8 +4,8 @@ import 'package:json_annotation/json_annotation.dart';
 
 import 'address.dart';
 import 'category_path.dart';
-import 'image.dart';
 import 'merchant.dart';
+
 part 'listing.g.dart';
 
 const String controller = 'listings';
